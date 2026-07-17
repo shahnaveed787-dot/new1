@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
+/* Design tokens — vibrant, balanced saturation for kids + adults */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-green: #2e9e5b;
+  --color-green-dark: #1f7a44;
+  --color-green-light: #e8f8ee;
+  --color-sky: #3fa9f5;
+  --color-sky-dark: #1e8ad6;
+  --color-sky-light: #e8f5fe;
+  --color-sun: #ffc93c;
+  --color-sun-dark: #e6a800;
+  --color-bark: #8b5e3c;
+  --color-bark-dark: #6b4423;
+  --color-cream: #fff9ef;
+  --color-cream-dark: #f5ebd6;
+  --color-accent-coral: #ff6b5b;
+  --color-accent-coral-dark: #e84e3d;
+  --color-accent-coral-light: #ffe8e4;
+  --color-accent-teal: #00b8a9;
+  --color-accent-teal-dark: #009688;
+  --color-ink: #1a2e1f;
+  --color-ink-muted: #4a5d50;
+  --color-white: #ffffff;
+  --shadow-soft: 0 4px 20px rgb(46 158 91 / 0.12);
+  --shadow-lift: 0 10px 30px rgb(46 158 91 / 0.18);
+  --radius-card: 16px;
+  --radius-button: 14px;
+  --radius-pill: 999px;
+  --header-height: 72px;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-green: var(--color-green);
+  --color-green-dark: var(--color-green-dark);
+  --color-green-light: var(--color-green-light);
+  --color-sky: var(--color-sky);
+  --color-sky-dark: var(--color-sky-dark);
+  --color-sky-light: var(--color-sky-light);
+  --color-sun: var(--color-sun);
+  --color-sun-dark: var(--color-sun-dark);
+  --color-bark: var(--color-bark);
+  --color-bark-dark: var(--color-bark-dark);
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
+  --color-accent-coral: var(--color-accent-coral);
+  --color-accent-coral-dark: var(--color-accent-coral-dark);
+  --color-accent-coral-light: var(--color-accent-coral-light);
+  --color-accent-teal: var(--color-accent-teal);
+  --color-accent-teal-dark: var(--color-accent-teal-dark);
+  --color-ink: var(--color-ink);
+  --color-ink-muted: var(--color-ink-muted);
+  --font-display: var(--font-baloo);
+  --font-sans: var(--font-nunito);
+  --radius-card: var(--radius-card);
+  --radius-button: var(--radius-button);
+  --radius-pill: var(--radius-pill);
+  --shadow-soft: var(--shadow-soft);
+  --shadow-lift: var(--shadow-lift);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-nunito), system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-baloo), system-ui, sans-serif;
+    line-height: 1.2;
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-sky);
+    outline-offset: 3px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-hero-gradient {
+    background:
+      radial-gradient(ellipse 80% 60% at 15% 20%, rgb(63 169 245 / 0.28), transparent 55%),
+      radial-gradient(ellipse 70% 50% at 85% 15%, rgb(255 201 60 / 0.35), transparent 50%),
+      radial-gradient(ellipse 60% 50% at 70% 85%, rgb(46 158 91 / 0.22), transparent 55%),
+      linear-gradient(165deg, var(--color-cream) 0%, #fff4d6 45%, #e8f8ee 100%);
+  }
+
+  .card-surface {
+    background: var(--color-white);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .lift-hover {
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .lift-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lift);
+    }
+  }
+
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

@@ -1,0 +1,48 @@
+import Image from "next/image";
+import Link from "next/link";
+import type { CategoryCard as CategoryCardData } from "@/content/homepage";
+
+const badgeStyles: Record<CategoryCardData["difficulty"], string> = {
+  Beginner: "bg-green-light text-green-dark",
+  Easy: "bg-sky-light text-sky-dark",
+  Intermediate: "bg-cream-dark text-bark-dark",
+  Fun: "bg-accent-coral-light text-accent-coral-dark",
+};
+
+type Props = {
+  item: CategoryCardData;
+};
+
+export function CategoryCard({ item }: Props) {
+  return (
+    <article className="card-surface lift-hover flex h-full flex-col overflow-hidden">
+      <div className="relative aspect-[16/10] bg-cream-dark">
+        <Image
+          src={item.image}
+          alt={item.imageAlt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        />
+      </div>
+      <div className="flex flex-1 flex-col gap-3 p-5">
+        <div className="flex flex-wrap items-center gap-2">
+          <span
+            className={`rounded-full px-3 py-1 text-xs font-bold ${badgeStyles[item.difficulty]}`}
+          >
+            {item.difficulty}
+          </span>
+          <span className="text-sm font-semibold text-ink-muted">{item.time}</span>
+        </div>
+        <h3 className="font-display text-xl text-ink">{item.name}</h3>
+        <p className="flex-1 text-ink-muted">{item.description}</p>
+        <Link
+          href={item.href}
+          className="touch-target inline-flex items-center justify-center rounded-button bg-accent-coral px-4 py-2.5 text-center text-sm font-bold text-white transition-colors hover:bg-accent-coral-dark"
+        >
+          Start Drawing
+        </Link>
+      </div>
+    </article>
+  );
+}

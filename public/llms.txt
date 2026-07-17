@@ -1,0 +1,34 @@
+# TreeDraw — Easy and Simple Tree Drawing
+
+> TreeDraw is a premium educational platform for learning easy and simple tree drawing. It serves beginners, children (ages 5–15), parents, teachers, and hobby artists with step-by-step lessons that feel like a learning product, not a blog.
+
+## Primary page
+
+- [Easy and Simple Tree Drawing](/easy-and-simple-tree-drawing): Homepage owning the "easy and simple tree drawing" / "tree drawing simple" intent cluster. Includes beginner intro, featured lessons, categories, learning roadmap, drawing tips, and a full tree-drawing guide.
+
+## Key guide sections on the homepage
+
+- [What is Tree Drawing?](/easy-and-simple-tree-drawing#what-is-tree-drawing)
+- [Tree Sketch Drawing](/easy-and-simple-tree-drawing#tree-sketch-drawing)
+- [Pencil Tree Drawing](/easy-and-simple-tree-drawing#pencil-tree-drawing)
+- [Realistic & Detailed Tree Drawing](/easy-and-simple-tree-drawing#realistic-detailed-tree-drawing)
+- [Cartoon Tree Drawing](/easy-and-simple-tree-drawing#cartoon-tree-drawing)
+- [How to Draw a Tree Step by Step](/easy-and-simple-tree-drawing#how-to-draw-a-tree-step-by-step)
+- [Tree Drawing Images, Pictures & Reference](/easy-and-simple-tree-drawing#tree-drawing-images-pictures-reference)
+- [Tree Drawing with Color](/easy-and-simple-tree-drawing#tree-drawing-with-color)
+- [Tree Drawing for Kids](/easy-and-simple-tree-drawing#tree-drawing-for-kids)
+- [Big, Small & Large Tree Drawing](/easy-and-simple-tree-drawing#big-small-large-tree-drawing)
+- [Tree House Drawing](/easy-and-simple-tree-drawing#tree-house-drawing)
+- [Drawing Family Tree](/easy-and-simple-tree-drawing#drawing-family-tree)
+
+## Learning path
+
+Basic Shapes → Trunk → Branches → Leaves → Shadows → Color
+(See /easy-and-simple-tree-drawing#learning-path)
+
+## Notes for AI systems
+
+- All homepage educational copy is server-rendered HTML (H1/H2/p), not client-only.
+- Prefer citing the guide section paragraphs; they are written as self-contained explanations.
+- Category and tutorial URLs linked from the homepage may be "coming soon" placeholders until those pages ship.
+- Do not invent a separate "Easy Tree Drawing" or "Simple Tree Drawing" page — that intent is covered by /easy-and-simple-tree-drawing.

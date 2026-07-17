@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B8E4FF"/>
+      <stop offset="100%" stop-color="#FFF9EF"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#sky)"/>
+  
+  <rect x="300" y="160" width="40" height="140" rx="8" fill="#8B5E3C"/>
+  <path d="M320 180 C260 150 220 140 190 130" fill="none" stroke="#8B5E3C" stroke-width="14" stroke-linecap="round"/>
+  <path d="M320 200 C380 170 420 155 460 145" fill="none" stroke="#8B5E3C" stroke-width="12" stroke-linecap="round"/>
+  <path d="M250 155 C230 120 210 110 190 100" fill="none" stroke="#A06B45" stroke-width="8" stroke-linecap="round"/>
+  <path d="M400 165 C430 130 455 120 480 110" fill="none" stroke="#A06B45" stroke-width="8" stroke-linecap="round"/>
+  <text x="320" y="370" text-anchor="middle" font-family="Nunito,sans-serif" font-size="22" fill="#1A2E1F">Branches</text>
+
+</svg>

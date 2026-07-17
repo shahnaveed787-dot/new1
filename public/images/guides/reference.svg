@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B8E4FF"/>
+      <stop offset="100%" stop-color="#FFF9EF"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#sky)"/>
+  
+    <rect x="80" y="70" width="200" height="220" rx="12" fill="#fff" stroke="#3FA9F5" stroke-width="4"/>
+    <rect x="140" y="180" width="30" height="80" fill="#8B5E3C"/>
+    <circle cx="155" cy="140" r="50" fill="#2E9E5B"/>
+    <text x="180" y="320" text-anchor="middle" font-size="16" fill="#1A2E1F">Photo ref</text>
+    <rect x="340" y="70" width="220" height="220" rx="12" fill="#fff" stroke="#FFC93C" stroke-width="4"/>
+    <rect x="420" y="180" width="30" height="80" fill="#8B5E3C"/>
+    <circle cx="435" cy="140" r="50" fill="none" stroke="#1A2E1F" stroke-width="3"/>
+    <text x="450" y="320" text-anchor="middle" font-size="16" fill="#1A2E1F">Your sketch</text>
+</svg>

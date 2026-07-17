@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="400" viewBox="0 0 640 400" role="img">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B8E4FF"/>
+      <stop offset="100%" stop-color="#FFF9EF"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="400" fill="url(#sky)"/>
+  
+    <rect x="300" y="190" width="40" height="120" rx="8" fill="#8B5E3C"/>
+    <circle cx="320" cy="150" r="90" fill="#7DDE9A" opacity=".9"/>
+    <circle cx="270" cy="170" r="50" fill="#2E9E5B"/>
+    <text x="120" y="80" font-family="Nunito,sans-serif" font-size="20" fill="#1A2E1F">Look → Simplify → Draw</text>
+</svg>
