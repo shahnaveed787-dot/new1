@@ -29,7 +29,9 @@ import {
 } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: homepageMeta.title,
+  title: {
+    absolute: homepageMeta.title,
+  },
   description: homepageMeta.description,
   alternates: {
     canonical: homepageMeta.canonicalPath,
