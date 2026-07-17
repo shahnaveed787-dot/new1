@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/layout/Logo";
-import { SearchBarLoader } from "@/components/layout/SearchBarLoader";
+import { SearchBar } from "@/components/layout/SearchBar";
 import { navLinks } from "@/content/homepage";
 
 export function Header() {
@@ -26,7 +26,7 @@ export function Header() {
         </div>
 
         <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
-          <SearchBarLoader />
+          <SearchBar />
           <nav aria-label="Mobile primary" className="lg:hidden">
             <ul className="flex gap-2 overflow-x-auto pb-1">
               {navLinks.map((link) => (

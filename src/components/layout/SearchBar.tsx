@@ -1,31 +1,52 @@
 "use client";
 
-import { useDeferredValue, useEffect, useId, useMemo, useRef, useState } from "react";
+import { useDeferredValue, useEffect, useId, useRef, useState } from "react";
 import Link from "next/link";
-import Fuse from "fuse.js";
-import { searchDataset, type SearchEntry } from "@/content/search";
+import type { SearchEntry } from "@/content/search";
+import { searchDataset } from "@/content/search";
+
+type FuseInstance = {
+  search: (q: string) => { item: SearchEntry }[];
+};
 
 export function SearchBar() {
   const listId = useId();
   const containerRef = useRef<HTMLDivElement>(null);
+  const fuseRef = useRef<FuseInstance | null>(null);
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
+  const [results, setResults] = useState<SearchEntry[]>([]);
   const deferredQuery = useDeferredValue(query);
 
-  const fuse = useMemo(
-    () =>
-      new Fuse(searchDataset, {
-        keys: ["title", "category", "keywords"],
-        threshold: 0.35,
-        includeScore: true,
-      }),
-    [],
-  );
+  useEffect(() => {
+    let cancelled = false;
 
-  const results = useMemo(() => {
-    if (!deferredQuery.trim()) return [] as SearchEntry[];
-    return fuse.search(deferredQuery).slice(0, 6).map((r) => r.item);
-  }, [deferredQuery, fuse]);
+    async function runSearch(value: string) {
+      if (!value.trim()) {
+        setResults([]);
+        return;
+      }
+
+      if (!fuseRef.current) {
+        const Fuse = (await import("fuse.js")).default;
+        fuseRef.current = new Fuse(searchDataset, {
+          keys: ["title", "category", "keywords"],
+          threshold: 0.35,
+          includeScore: true,
+        });
+      }
+
+      if (cancelled) return;
+      setResults(
+        fuseRef.current.search(value).slice(0, 6).map((r) => r.item),
+      );
+    }
+
+    void runSearch(deferredQuery);
+    return () => {
+      cancelled = true;
+    };
+  }, [deferredQuery]);
 
   useEffect(() => {
     function onPointerDown(event: MouseEvent) {
