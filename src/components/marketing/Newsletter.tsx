@@ -1,3 +1,5 @@
+import { withBasePath } from "@/lib/paths";
+
 export function Newsletter() {
   return (
     <section
@@ -17,7 +19,7 @@ export function Newsletter() {
             </p>
             <form
               className="mt-8 flex flex-col gap-3 sm:flex-row"
-              action="/coming-soon"
+              action={withBasePath("/coming-soon")}
               method="get"
             >
               <label htmlFor="newsletter-email" className="sr-only">

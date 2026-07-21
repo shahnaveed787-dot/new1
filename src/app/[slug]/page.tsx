@@ -5,9 +5,6 @@ import { ComingSoonPage, comingSoonMetadata } from "@/components/marketing/Comin
 const PLACEHOLDER_SLUGS = new Set([
   "drawing-collection",
   "step-by-step-tutorials",
-  "about",
-  "privacy-policy",
-  "terms",
   "coming-soon",
   "how-to-draw-a-simple-oak-tree",
   "pine-tree-drawing-for-beginners",

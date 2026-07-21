@@ -16,7 +16,7 @@ export function buildOrganizationSchema() {
     url: absoluteUrl("/"),
     description:
       "Premium educational platform for easy and simple tree drawing tutorials for kids, beginners, parents, and teachers.",
-    logo: absoluteUrl("/images/logo-mark.svg"),
+    logo: absoluteUrl("/images/perf/v2/logo.webp"),
   };
 }
 
@@ -46,7 +46,7 @@ export function buildArticleSchema(input: {
       name: "TreeDraw",
       logo: {
         "@type": "ImageObject",
-        url: absoluteUrl("/images/logo-mark.svg"),
+        url: absoluteUrl("/images/perf/v2/logo.webp"),
       },
     },
     datePublished: input.datePublished ?? "2026-07-18",

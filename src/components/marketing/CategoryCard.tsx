@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import type { CategoryCard as CategoryCardData } from "@/content/homepage";
+import { ContentImage } from "@/components/marketing/ContentImage";
 
 const badgeStyles: Record<CategoryCardData["difficulty"], string> = {
   Beginner: "bg-green-light text-green-dark",
@@ -16,12 +16,10 @@ type Props = {
 export function CategoryCard({ item }: Props) {
   return (
     <article className="card-surface lift-hover flex h-full flex-col overflow-hidden">
-      <div className="relative aspect-[16/10] bg-cream-dark">
-        <Image
+      <div className="relative aspect-[16/10] bg-gradient-to-br from-cream to-green-light">
+        <ContentImage
           src={item.image}
           alt={item.imageAlt}
-          fill
-          className="object-cover"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>

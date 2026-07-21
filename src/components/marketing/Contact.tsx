@@ -1,37 +1,55 @@
-export function Contact() {
+import { withBasePath } from "@/lib/paths";
+
+type ContactProps = {
+  /** "section" keeps the homepage H2; "page" omits it because the Contact route already has an H1. */
+  variant?: "section" | "page";
+};
+
+export function Contact({ variant = "section" }: ContactProps) {
+  const isPage = variant === "page";
+
   return (
     <section
       id="contact"
-      className="scroll-mt-24 bg-cream-dark/60 py-14 md:py-20"
-      aria-labelledby="contact-title"
+      className={`scroll-mt-24 py-14 md:py-20 ${isPage ? "" : "bg-cream-dark/60"}`}
+      aria-labelledby={isPage ? undefined : "contact-title"}
+      aria-label={isPage ? "Contact form" : undefined}
     >
       <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 md:grid-cols-2">
         <div>
-          <p className="mb-2 text-sm font-bold uppercase tracking-wider text-accent-teal">
-            Contact
-          </p>
-          <h2 id="contact-title" className="font-display text-3xl text-ink md:text-4xl">
-            Say hello — we love tree questions
-          </h2>
-          <p className="mt-4 text-lg text-ink-muted">
+          {isPage ? null : (
+            <>
+              <p className="mb-2 text-sm font-bold uppercase tracking-wider text-accent-teal">
+                Contact
+              </p>
+              <h2 id="contact-title" className="font-display text-3xl text-ink md:text-4xl">
+                Say hello — we love tree questions
+              </h2>
+            </>
+          )}
+          <p className={`text-lg text-ink-muted ${isPage ? "" : "mt-4"}`}>
             Parents, teachers, and young artists: tell us what you want to learn next.
             We read every message.
           </p>
           <ul className="mt-6 space-y-2 text-ink">
             <li>
               <strong className="text-green-dark">Email:</strong>{" "}
-              <a className="underline decoration-sky underline-offset-2" href="mailto:hello@treedraw.studio">
+              <a
+                className="underline decoration-sky underline-offset-2"
+                href="mailto:hello@treedraw.studio"
+              >
                 hello@treedraw.studio
               </a>
             </li>
             <li>
-              <strong className="text-green-dark">For schools:</strong> lesson packs and classroom tips coming soon.
+              <strong className="text-green-dark">For schools:</strong> lesson packs and
+              classroom tips coming soon.
             </li>
           </ul>
         </div>
         <form
           className="card-surface grid gap-4 p-6"
-          action="/coming-soon"
+          action={withBasePath("/coming-soon")}
           method="get"
           aria-label="Contact form"
         >

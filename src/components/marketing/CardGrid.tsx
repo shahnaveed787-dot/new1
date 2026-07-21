@@ -5,7 +5,7 @@ import type { CategoryCard as CategoryCardData, TutorialCard as TutorialCardData
 
 type TutorialGridProps = {
   eyebrow?: string;
-  title: string;
+  title?: string;
   description?: string;
   items: TutorialCardData[];
   id?: string;
@@ -18,14 +18,21 @@ export function TutorialCardGrid({
   items,
   id,
 }: TutorialGridProps) {
+  const labelledBy = title && id ? `${id}-title` : undefined;
+
   return (
-    <section id={id} className="scroll-mt-24 py-14 md:py-20" aria-labelledby={id ? `${id}-title` : undefined}>
+    <section
+      id={id}
+      className="scroll-mt-24 py-14 md:py-20"
+      aria-label={!title ? eyebrow || "Tutorials" : undefined}
+      aria-labelledby={labelledBy}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow={eyebrow}
           title={title}
           description={description}
-          id={id ? `${id}-title` : undefined}
+          id={labelledBy}
         />
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {items.map((item) => (
@@ -41,7 +48,7 @@ export function TutorialCardGrid({
 
 type CategoryGridProps = {
   eyebrow?: string;
-  title: string;
+  title?: string;
   description?: string;
   items: CategoryCardData[];
 };
@@ -53,13 +60,18 @@ export function CategoryCardGrid({
   items,
 }: CategoryGridProps) {
   return (
-    <section id="categories" className="scroll-mt-24 bg-green-light/40 py-14 md:py-20" aria-labelledby="categories-title">
+    <section
+      id="categories"
+      className="scroll-mt-24 bg-green-light/40 py-14 md:py-20"
+      aria-label={!title ? eyebrow || "Drawing categories" : undefined}
+      aria-labelledby={title ? "categories-title" : undefined}
+    >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <SectionHeading
           eyebrow={eyebrow}
           title={title}
           description={description}
-          id="categories-title"
+          id={title ? "categories-title" : undefined}
         />
         <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item) => (

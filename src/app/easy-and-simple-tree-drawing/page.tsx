@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/marketing/Hero";
-import { TutorialCardGrid, CategoryCardGrid } from "@/components/marketing/CardGrid";
 import { LearningRoadmap } from "@/components/marketing/LearningRoadmap";
 import { DrawingTips } from "@/components/marketing/DrawingTips";
 import { GuideSections } from "@/components/marketing/GuideSections";
@@ -9,12 +8,10 @@ import { FAQ } from "@/components/marketing/FAQ";
 import { Newsletter } from "@/components/marketing/Newsletter";
 import { Contact } from "@/components/marketing/Contact";
 import {
-  featuredTutorials,
-  popularDrawings,
-  drawingCategories,
-  latestTutorials,
-  studentFavorites,
   guideSections,
+  guideSectionStepByStep,
+  guideSectionWithColor,
+  guideSectionsRemaining,
   faqs,
   homepageMeta,
   heroContent,
@@ -69,47 +66,26 @@ export default function HomePage() {
       />
       <main id="main-content">
         <Hero />
-        <TutorialCardGrid
-          id="featured-tutorials"
-          eyebrow="Featured Tutorials"
-          title="Start with these friendly tree lessons"
-          description="Hand-picked beginner tutorials to build confidence fast."
-          items={featuredTutorials}
+        <GuideSections
+          sections={[guideSectionStepByStep, guideSectionWithColor]}
+          id="featured-tree-lessons"
         />
-        <TutorialCardGrid
-          id="popular-drawings"
-          eyebrow="Popular Drawings"
-          title="Trees learners love right now"
-          description="Seasonal favorites and expressive styles from our collection."
-          items={popularDrawings}
-        />
-        <CategoryCardGrid
-          eyebrow="Drawing Categories"
-          title="Pick a tree style and start drawing"
-          description="Every category links to a dedicated practice path (pages launching soon)."
-          items={drawingCategories}
-        />
-        <LearningRoadmap />
-        <TutorialCardGrid
-          id="latest-tutorials"
-          eyebrow="Latest Tutorials"
-          title="Fresh sketches just added"
-          description="New practice pages as we grow the TreeDraw library."
-          items={latestTutorials}
-        />
-        <DrawingTips />
-        <GuideSections />
-        <TutorialCardGrid
-          id="student-favorites"
-          eyebrow="Student Favorites"
-          title="Classroom and couch winners"
-          description="The drawings kids ask to repeat — and teachers keep assigning."
-          items={studentFavorites}
-        />
-        <Testimonials />
-        <FAQ />
-        <Newsletter />
-        <Contact />
+        <div className="cwv-defer">
+          <LearningRoadmap />
+        </div>
+        <div className="cwv-defer">
+          <GuideSections
+            sections={guideSectionsRemaining}
+            id="tree-drawing-guide"
+          />
+        </div>
+        <div className="cwv-defer">
+          <DrawingTips />
+          <Testimonials />
+          <FAQ />
+          <Newsletter />
+          <Contact />
+        </div>
       </main>
     </>
   );

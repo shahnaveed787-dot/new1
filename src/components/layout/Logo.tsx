@@ -18,37 +18,24 @@ export function Logo({
   return (
     <Link
       href={href}
-      className={`touch-target inline-flex items-center gap-2 rounded-button focus-visible:outline-none ${
-        stacked ? "flex-col text-center" : "flex-row"
+      className={`touch-target inline-flex items-center focus-visible:outline-none ${
+        stacked ? "flex-col" : "flex-row"
       }`}
-      aria-label="TreeDraw home"
+      aria-label="Tree Drawing home"
     >
       <Image
-        src="/images/logo-mark.svg"
-        alt=""
-        width={44}
-        height={44}
-        className="h-11 w-11 shrink-0"
-        priority
+        src="/images/perf/v2/logo.webp"
+        alt="Tree Drawing — Draw Nature, Inspire Life"
+        width={512}
+        height={405}
+        className={`${
+          stacked
+            ? "h-24 w-auto max-w-[200px] object-contain"
+            : "h-14 w-auto max-w-[160px] object-contain sm:h-16 sm:max-w-[200px] md:h-20 md:max-w-[240px]"
+        }${onDark ? " brightness-0 invert" : ""}`}
+        sizes="(max-width: 640px) 140px, 200px"
+        quality={75}
       />
-      <span className={stacked ? "leading-tight" : ""}>
-        <span
-          className={`font-display text-2xl font-bold tracking-tight ${
-            onDark ? "text-sun" : "text-green"
-          }`}
-        >
-          TreeDraw
-        </span>
-        {stacked ? (
-          <span
-            className={`mt-0.5 block text-sm ${
-              onDark ? "text-cream/80" : "text-ink-muted"
-            }`}
-          >
-            Draw trees with joy
-          </span>
-        ) : null}
-      </span>
     </Link>
   );
 }

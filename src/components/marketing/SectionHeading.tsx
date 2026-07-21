@@ -1,6 +1,6 @@
 type SectionHeadingProps = {
   eyebrow?: string;
-  title: string;
+  title?: string;
   description?: string;
   as?: "h2" | "h3";
   id?: string;
@@ -15,6 +15,8 @@ export function SectionHeading({
   id,
   align = "left",
 }: SectionHeadingProps) {
+  if (!eyebrow && !title && !description) return null;
+
   const Heading = as;
   const alignClass = align === "center" ? "mx-auto text-center" : "text-left";
 
@@ -25,9 +27,11 @@ export function SectionHeading({
           {eyebrow}
         </p>
       ) : null}
-      <Heading id={id} className="text-balance text-3xl text-ink md:text-4xl">
-        {title}
-      </Heading>
+      {title ? (
+        <Heading id={id} className="text-balance text-3xl text-ink md:text-4xl">
+          {title}
+        </Heading>
+      ) : null}
       {description ? (
         <p className="mt-3 text-lg text-ink-muted">{description}</p>
       ) : null}

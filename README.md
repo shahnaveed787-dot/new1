@@ -20,10 +20,18 @@ Canonical URL: [`/easy-and-simple-tree-drawing`](/easy-and-simple-tree-drawing)
 
 ```bash
 npm install
-npm run dev
+npm run setup:admin
+npm run build
+npm run start
 ```
 
-Open [http://localhost:3000/easy-and-simple-tree-drawing](http://localhost:3000/easy-and-simple-tree-drawing).
+**Laragon URL (recommended):** [http://localhost/new1/easy-and-simple-tree-drawing](http://localhost/new1/easy-and-simple-tree-drawing)
+
+Apache proxies `/new1` → Next.js on port 3000 (`basePath: /new1`). Keep `npm run start` running.
+
+Direct Next URL: [http://localhost:3000/new1/easy-and-simple-tree-drawing](http://localhost:3000/new1/easy-and-simple-tree-drawing)
+
+**Admin:** [http://localhost/new1/admin/login](http://localhost/new1/admin/login)
 
 ## Build
 

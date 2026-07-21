@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Baloo_2, Nunito } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -9,15 +9,25 @@ const baloo = Baloo_2({
   variable: "--font-baloo",
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600", "700", "800"],
+  weight: ["700"],
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const nunito = Nunito({
   variable: "--font-nunito",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "600", "700", "800"],
+  weight: ["400", "700"],
+  preload: true,
+  adjustFontFallback: true,
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#fff9ef",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

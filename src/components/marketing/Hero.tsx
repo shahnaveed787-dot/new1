@@ -5,7 +5,7 @@ import { heroContent } from "@/content/homepage";
 export function Hero() {
   return (
     <section className="bg-hero-gradient relative overflow-hidden" aria-labelledby="homepage-h1">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 md:py-20">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-10 sm:px-6 md:grid-cols-2 md:gap-10 md:py-16">
         <div>
           <p className="mb-3 inline-flex rounded-pill bg-white/80 px-3 py-1 text-sm font-bold text-green-dark shadow-soft">
             {heroContent.subheading}
@@ -34,15 +34,21 @@ export function Hero() {
             </Link>
           </div>
         </div>
-        <div className="relative mx-auto aspect-[640/420] w-full max-w-lg">
-          <Image
-            src="/images/hero-tree.svg"
-            alt="Colorful beginner tree drawing with a pencil beside a leafy canopy"
-            fill
-            priority
-            className="object-contain"
-            sizes="(max-width: 768px) 100vw, 512px"
-          />
+        <div className="relative mx-auto w-full max-w-lg">
+          <div className="hero-media overflow-hidden p-3 sm:p-4">
+            <Image
+              src="/images/perf/v2/hero.webp"
+              alt="Colorful Tree Drawing logo and illustration"
+              width={720}
+              height={640}
+              priority
+              fetchPriority="high"
+              // Pre-flattened opaque WebP (~40KB) — skip optimizer for fastest LCP
+              unoptimized
+              className="h-auto w-full object-contain"
+              sizes="(max-width: 768px) 92vw, 480px"
+            />
+          </div>
         </div>
       </div>
     </section>

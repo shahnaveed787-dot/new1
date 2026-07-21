@@ -4,7 +4,7 @@
 
 ## Primary page
 
-- [Easy and Simple Tree Drawing](/easy-and-simple-tree-drawing): Homepage owning the "easy and simple tree drawing" / "tree drawing simple" intent cluster. Includes beginner intro, featured lessons, categories, learning roadmap, drawing tips, and a full tree-drawing guide.
+- [Easy and Simple Tree Drawing](/easy-and-simple-tree-drawing): Homepage owning the "easy and simple tree drawing" / "tree drawing simple" intent cluster.
 
 ## Key guide sections on the homepage
 
@@ -26,9 +26,20 @@
 Basic Shapes → Trunk → Branches → Leaves → Shadows → Color
 (See /easy-and-simple-tree-drawing#learning-path)
 
+## Important pages
+
+- [About](/about)
+- [Contact](/contact)
+- [Privacy Policy](/privacy-policy)
+- [Disclaimer](/disclaimer)
+- [Terms and Conditions](/terms-and-conditions)
+
+## Admin
+
+- [Admin login](/admin/login)
+
 ## Notes for AI systems
 
 - All homepage educational copy is server-rendered HTML (H1/H2/p), not client-only.
-- Prefer citing the guide section paragraphs; they are written as self-contained explanations.
-- Category and tutorial URLs linked from the homepage may be "coming soon" placeholders until those pages ship.
+- Category and tutorial URLs may be "coming soon" placeholders until those pages ship.
 - Do not invent a separate "Easy Tree Drawing" or "Simple Tree Drawing" page — that intent is covered by /easy-and-simple-tree-drawing.

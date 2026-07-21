@@ -1,16 +1,29 @@
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Logo } from "@/components/layout/Logo";
-import { SearchBar } from "@/components/layout/SearchBar";
 import { navLinks } from "@/content/homepage";
+
+const SearchBar = dynamic(
+  () =>
+    import("@/components/layout/SearchBar").then((mod) => mod.SearchBar),
+  {
+    loading: () => (
+      <div
+        className="h-12 w-full max-w-xl animate-pulse rounded-pill bg-white/80"
+        aria-hidden="true"
+      />
+    ),
+  },
+);
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-green/10 bg-cream/90 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl flex-col gap-4 px-4 py-3 sm:px-6">
-        <div className="flex items-center justify-between gap-4">
+    <header className="sticky top-0 z-40 border-b border-green/20 bg-cream/95 supports-[backdrop-filter]:bg-cream/90 supports-[backdrop-filter]:backdrop-blur-sm">
+      <div className="mx-auto max-w-6xl px-4 pt-2 sm:px-6 sm:pt-3">
+        <div className="flex items-center justify-between gap-3">
           <Logo />
           <nav aria-label="Primary" className="hidden lg:block">
-            <ul className="flex items-center gap-1">
+            <ul className="flex flex-wrap items-center justify-end gap-1">
               {navLinks.map((link) => (
                 <li key={link.href + link.label}>
                   <Link
@@ -25,22 +38,26 @@ export function Header() {
           </nav>
         </div>
 
-        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        {/* Lightweight mobile nav — horizontal scroll contained, no page overflow */}
+        <nav aria-label="Mobile primary" className="mt-2 lg:hidden">
+          <ul className="-mx-1 flex gap-2 overflow-x-auto overscroll-x-contain px-1 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {navLinks.map((link) => (
+              <li key={`m-${link.href}-${link.label}`} className="shrink-0">
+                <Link
+                  href={link.href}
+                  className="touch-target inline-flex items-center rounded-pill bg-white px-3 py-2 text-sm font-bold text-ink shadow-soft"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="border-b border-green" aria-hidden="true" />
+
+        <div className="py-2.5 sm:py-3">
           <SearchBar />
-          <nav aria-label="Mobile primary" className="lg:hidden">
-            <ul className="flex gap-2 overflow-x-auto pb-1">
-              {navLinks.map((link) => (
-                <li key={`m-${link.href}-${link.label}`} className="shrink-0">
-                  <Link
-                    href={link.href}
-                    className="touch-target inline-flex items-center rounded-pill bg-white px-3 py-2 text-sm font-bold text-ink shadow-soft"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
         </div>
       </div>
     </header>

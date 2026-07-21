@@ -1,0 +1,13 @@
+# Defense in depth if Apache ever serves this folder directly
+Options -Indexes
+
+<FilesMatch "(?i)^\.(env|git)">
+  Require all denied
+</FilesMatch>
+
+<FilesMatch "(?i)\.(env|local|pem|key)$">
+  Require all denied
+</FilesMatch>
+
+# Prefer the reverse-proxy config in laragon/etc/apache2/alias/new1-treedraw.conf
+DirectoryIndex disabled

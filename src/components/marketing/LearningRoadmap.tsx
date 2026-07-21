@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { learningRoadmap } from "@/content/homepage";
+import { ContentImage } from "@/components/marketing/ContentImage";
 
 export function LearningRoadmap() {
   return (
@@ -30,20 +30,19 @@ export function LearningRoadmap() {
                 href={step.href}
                 className="card-surface lift-hover group flex h-full flex-col overflow-hidden focus-visible:outline-none"
               >
-                <div className="relative aspect-square bg-cream-dark">
-                  <Image
+                <div className="relative aspect-square bg-gradient-to-br from-cream to-green-light">
+                  <ContentImage
                     src={step.image}
                     alt={step.imageAlt}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                     sizes="(max-width: 768px) 50vw, 16vw"
+                    className="transition-transform duration-200 group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                   />
                   <span className="absolute left-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-sun font-display text-lg font-bold text-ink shadow-soft">
                     {index + 1}
                   </span>
                 </div>
                 <div className="flex flex-1 flex-col gap-1 p-4">
-                  <h3 className="font-display text-lg text-ink">{step.label}</h3>
+                  <p className="font-display text-lg text-ink">{step.label}</p>
                   <p className="text-sm text-ink-muted">{step.description}</p>
                 </div>
               </Link>
