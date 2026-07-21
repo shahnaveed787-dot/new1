@@ -1,55 +1,51 @@
 import { notFound } from "next/navigation";
 import { ComingSoonPage, comingSoonMetadata } from "@/components/marketing/ComingSoonPage";
+import {
+  isLearningStepSlug,
+  isPostSlug,
+  titleFromPostname,
+  POST_SLUGS,
+} from "@/lib/permalinks";
 
-/** Placeholder routes reserved for future category/tutorial/legal pages. */
-const PLACEHOLDER_SLUGS = new Set([
-  "drawing-collection",
-  "step-by-step-tutorials",
-  "coming-soon",
-  "how-to-draw-a-simple-oak-tree",
-  "pine-tree-drawing-for-beginners",
-  "cartoon-apple-tree-drawing",
-  "winter-bare-tree-sketch",
-  "cherry-blossom-tree-drawing",
-  "autumn-tree-drawing",
-  "dead-tree-drawing",
-  "fruit-tree-drawing",
-  "draw-a-willow-tree",
-  "rainbow-tree-for-kids",
-  "palm-tree-drawing",
-  "maple-leaf-close-up",
-  "smiling-cartoon-tree",
-  "treehouse-adventure",
-  "nighttime-glow-tree",
-  "family-tree-poster",
-]);
-
+/**
+ * WordPress-style postname route: /%postname%/
+ * Handles tutorials + learning-path steps at the site root (no /tutorial-step/ prefix).
+ */
 type Props = { params: Promise<{ slug: string }> };
 
-function titleFromSlug(slug: string) {
-  return slug
-    .split("-")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
-}
-
 export function generateStaticParams() {
-  return Array.from(PLACEHOLDER_SLUGS).map((slug) => ({ slug }));
+  return POST_SLUGS.map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  if (!PLACEHOLDER_SLUGS.has(slug)) return {};
-  return comingSoonMetadata(titleFromSlug(slug));
+  if (!isPostSlug(slug)) return {};
+
+  const title = titleFromPostname(slug);
+  if (isLearningStepSlug(slug)) {
+    return comingSoonMetadata(`${title} — Learning Step`);
+  }
+  return comingSoonMetadata(title);
 }
 
-export default async function PlaceholderSlugPage({ params }: Props) {
+export default async function PostnamePage({ params }: Props) {
   const { slug } = await params;
-  if (!PLACEHOLDER_SLUGS.has(slug)) notFound();
+  if (!isPostSlug(slug)) notFound();
+
+  const title = titleFromPostname(slug);
+
+  if (isLearningStepSlug(slug)) {
+    return (
+      <ComingSoonPage
+        title={`${title} step coming soon`}
+        description="This learning-path step will open as a full practice lesson soon. Meanwhile, follow the homepage roadmap images to practice each stage."
+      />
+    );
+  }
 
   return (
     <ComingSoonPage
-      title={`${titleFromSlug(slug)} — coming soon`}
+      title={`${title} — coming soon`}
       description="We're painting this page next. Return to the homepage for easy and simple tree drawing lessons you can use today."
     />
   );

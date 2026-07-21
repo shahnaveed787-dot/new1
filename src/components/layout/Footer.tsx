@@ -8,19 +8,19 @@ const socialLinks = [
 ] as const;
 
 const exploreLinks = [
-  { label: "Home", href: "/easy-and-simple-tree-drawing" },
-  { label: "Drawing Tutorials", href: "/easy-and-simple-tree-drawing#tree-drawing-guide" },
-  { label: "About", href: "/about" },
-  { label: "FAQ", href: "/easy-and-simple-tree-drawing#faqs" },
-  { label: "Contact", href: "/contact" },
+  { label: "Home", href: "/easy-and-simple-tree-drawing/" },
+  { label: "Drawing Tutorials", href: "/easy-and-simple-tree-drawing/#tree-drawing-guide" },
+  { label: "About", href: "/about/" },
+  { label: "FAQ", href: "/easy-and-simple-tree-drawing/#faqs" },
+  { label: "Contact", href: "/contact/" },
 ] as const;
 
 const importantLinks = [
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Disclaimer", href: "/disclaimer" },
-  { label: "Terms and Conditions", href: "/terms-and-conditions" },
+  { label: "About", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
+  { label: "Privacy Policy", href: "/privacy-policy/" },
+  { label: "Disclaimer", href: "/disclaimer/" },
+  { label: "Terms and Conditions", href: "/terms-and-conditions/" },
 ] as const;
 
 export function Footer() {

@@ -14,7 +14,7 @@ export const homepageMeta = {
   title: "Easy and Simple Tree Drawing | Free Beginner Tutorials | 2026",
   description:
     "Learn tree drawing with easy step-by-step tutorials. Master tree sketch drawing and tree pencil drawing techniques to create realistic trees for all levels.",
-  canonicalPath: "/easy-and-simple-tree-drawing",
+  canonicalPath: "/easy-and-simple-tree-drawing/",
 } as const;
 
 export const heroContent = {
@@ -24,7 +24,7 @@ export const heroContent = {
     "Welcome to TreeDraw — a friendly place to learn easy and simple drawing tree at your own pace. Whether you are picking up a pencil for the first time or helping a child discover art, our lessons keep drawing tree simple, clear, and fun. Start with basic shapes, grow your skills branch by branch, and finish with trees you will be proud to show. No fancy tools required — just curiosity, a pencil, and a little practice each day.",
   primaryCta: {
     label: "Explore Drawing Collection",
-    href: "/drawing-collection",
+    href: "/drawing-collection/",
   },
   secondaryCta: {
     label: "Start Learning Path",
@@ -87,7 +87,7 @@ export const featuredTutorials: TutorialCard[] = [
     time: "15 min",
     image: "/images/tutorials/oak-tree.svg",
     imageAlt: "Simple oak tree drawing with a round leafy canopy and thick trunk",
-    href: "/how-to-draw-a-simple-oak-tree",
+    href: "/how-to-draw-a-simple-oak-tree/",
   },
   {
     slug: "pine-tree-drawing-for-beginners",
@@ -97,7 +97,7 @@ export const featuredTutorials: TutorialCard[] = [
     time: "12 min",
     image: "/images/tutorials/pine-tree.svg",
     imageAlt: "Beginner pine tree drawing made from stacked triangle layers",
-    href: "/pine-tree-drawing-for-beginners",
+    href: "/pine-tree-drawing-for-beginners/",
   },
   {
     slug: "cartoon-apple-tree-drawing",
@@ -107,7 +107,7 @@ export const featuredTutorials: TutorialCard[] = [
     time: "20 min",
     image: "/images/tutorials/apple-tree.svg",
     imageAlt: "Cartoon apple tree drawing with round canopy and red apples",
-    href: "/cartoon-apple-tree-drawing",
+    href: "/cartoon-apple-tree-drawing/",
   },
   {
     slug: "winter-bare-tree-sketch",
@@ -117,7 +117,7 @@ export const featuredTutorials: TutorialCard[] = [
     time: "18 min",
     image: "/images/tutorials/bare-tree.svg",
     imageAlt: "Winter bare tree sketch showing clear trunk and branch structure",
-    href: "/winter-bare-tree-sketch",
+    href: "/winter-bare-tree-sketch/",
   },
 ];
 
@@ -130,7 +130,7 @@ export const popularDrawings: TutorialCard[] = [
     time: "25 min",
     image: "/images/categories/cherry-blossom.svg",
     imageAlt: "Cherry blossom tree drawing with pink flower clusters",
-    href: "/cherry-blossom-tree-drawing",
+    href: "/cherry-blossom-tree-drawing/",
   },
   {
     slug: "autumn-tree-drawing",
@@ -140,7 +140,7 @@ export const popularDrawings: TutorialCard[] = [
     time: "20 min",
     image: "/images/categories/autumn-tree.svg",
     imageAlt: "Autumn tree drawing with orange and red fall foliage",
-    href: "/autumn-tree-drawing",
+    href: "/autumn-tree-drawing/",
   },
   {
     slug: "dead-tree-drawing",
@@ -150,7 +150,7 @@ export const popularDrawings: TutorialCard[] = [
     time: "22 min",
     image: "/images/categories/dead-tree.svg",
     imageAlt: "Dead tree drawing with twisted bare branches",
-    href: "/dead-tree-drawing",
+    href: "/dead-tree-drawing/",
   },
   {
     slug: "fruit-tree-drawing",
@@ -160,7 +160,7 @@ export const popularDrawings: TutorialCard[] = [
     time: "18 min",
     image: "/images/categories/fruit-tree.svg",
     imageAlt: "Fruit tree drawing with colorful round fruits in the canopy",
-    href: "/fruit-tree-drawing",
+    href: "/fruit-tree-drawing/",
   },
 ];
 
@@ -173,7 +173,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "25 min",
     image: "/images/categories/cherry-blossom.svg",
     imageAlt: "Cherry blossom category thumbnail showing pink blossoms on branches",
-    href: "/category/cherry-blossom-tree-drawing",
+    href: "/category/cherry-blossom-tree-drawing/",
   },
   {
     slug: "pine-tree-drawing",
@@ -183,7 +183,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "15 min",
     image: "/images/categories/pine-tree.svg",
     imageAlt: "Pine tree category thumbnail with layered evergreen shape",
-    href: "/category/pine-tree-drawing",
+    href: "/category/pine-tree-drawing/",
   },
   {
     slug: "autumn-tree-drawing",
@@ -193,7 +193,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "20 min",
     image: "/images/categories/autumn-tree.svg",
     imageAlt: "Autumn tree category thumbnail with warm fall colors",
-    href: "/category/autumn-tree-drawing",
+    href: "/category/autumn-tree-drawing/",
   },
   {
     slug: "dead-tree-drawing",
@@ -203,7 +203,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "22 min",
     image: "/images/categories/dead-tree.svg",
     imageAlt: "Dead tree category thumbnail with stark bare limbs",
-    href: "/category/dead-tree-drawing",
+    href: "/category/dead-tree-drawing/",
   },
   {
     slug: "tree-parts",
@@ -213,7 +213,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "10 min",
     image: "/images/categories/tree-parts.svg",
     imageAlt: "Tree parts category thumbnail labeling trunk, branch, and leaf",
-    href: "/category/tree-parts",
+    href: "/category/tree-parts/",
   },
   {
     slug: "fruit-tree-drawing",
@@ -223,7 +223,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "18 min",
     image: "/images/categories/fruit-tree.svg",
     imageAlt: "Fruit tree category thumbnail with apples in the canopy",
-    href: "/category/fruit-tree-drawing",
+    href: "/category/fruit-tree-drawing/",
   },
   {
     slug: "seasonal-trees",
@@ -233,7 +233,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "30 min",
     image: "/images/categories/seasonal-trees.svg",
     imageAlt: "Seasonal trees category thumbnail showing four seasonal tree stages",
-    href: "/category/seasonal-trees",
+    href: "/category/seasonal-trees/",
   },
   {
     slug: "nature-trees",
@@ -243,7 +243,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "20 min",
     image: "/images/categories/nature-trees.svg",
     imageAlt: "Nature trees category thumbnail of a forest tree cluster",
-    href: "/category/nature-trees",
+    href: "/category/nature-trees/",
   },
   {
     slug: "tree-sizes",
@@ -253,7 +253,7 @@ export const drawingCategories: CategoryCard[] = [
     time: "12 min",
     image: "/images/categories/tree-sizes.svg",
     imageAlt: "Tree sizes category thumbnail comparing small, medium, and large trees",
-    href: "/category/tree-sizes",
+    href: "/category/tree-sizes/",
   },
 ];
 
@@ -266,7 +266,7 @@ export const latestTutorials: TutorialCard[] = [
     time: "24 min",
     image: "/images/tutorials/willow-tree.svg",
     imageAlt: "Willow tree drawing with long hanging branches",
-    href: "/draw-a-willow-tree",
+    href: "/draw-a-willow-tree/",
   },
   {
     slug: "rainbow-tree-for-kids",
@@ -276,7 +276,7 @@ export const latestTutorials: TutorialCard[] = [
     time: "15 min",
     image: "/images/tutorials/rainbow-tree.svg",
     imageAlt: "Rainbow tree drawing with multicolored canopy rings for kids",
-    href: "/rainbow-tree-for-kids",
+    href: "/rainbow-tree-for-kids/",
   },
   {
     slug: "palm-tree-drawing",
@@ -286,7 +286,7 @@ export const latestTutorials: TutorialCard[] = [
     time: "16 min",
     image: "/images/tutorials/palm-tree.svg",
     imageAlt: "Palm tree drawing with curved trunk and fan-shaped leaves",
-    href: "/palm-tree-drawing",
+    href: "/palm-tree-drawing/",
   },
   {
     slug: "maple-leaf-close-up",
@@ -296,7 +296,7 @@ export const latestTutorials: TutorialCard[] = [
     time: "10 min",
     image: "/images/tutorials/maple-leaf.svg",
     imageAlt: "Maple leaf close-up drawing showing veins and pointed lobes",
-    href: "/maple-leaf-close-up",
+    href: "/maple-leaf-close-up/",
   },
 ];
 
@@ -309,7 +309,7 @@ export const studentFavorites: TutorialCard[] = [
     time: "12 min",
     image: "/images/tutorials/cartoon-tree.svg",
     imageAlt: "Smiling cartoon tree drawing with a friendly face on the trunk",
-    href: "/smiling-cartoon-tree",
+    href: "/smiling-cartoon-tree/",
   },
   {
     slug: "treehouse-adventure",
@@ -319,7 +319,7 @@ export const studentFavorites: TutorialCard[] = [
     time: "30 min",
     image: "/images/perf/v2/guides/tree-house.webp",
     imageAlt: "Treehouse adventure drawing with a wooden house in the branches",
-    href: "/treehouse-adventure",
+    href: "/treehouse-adventure/",
   },
   {
     slug: "nighttime-glow-tree",
@@ -329,7 +329,7 @@ export const studentFavorites: TutorialCard[] = [
     time: "20 min",
     image: "/images/tutorials/night-tree.svg",
     imageAlt: "Nighttime glow tree drawing under a moon and stars",
-    href: "/nighttime-glow-tree",
+    href: "/nighttime-glow-tree/",
   },
   {
     slug: "family-tree-poster",
@@ -339,7 +339,7 @@ export const studentFavorites: TutorialCard[] = [
     time: "25 min",
     image: "/images/perf/v2/guides/family-tree.webp",
     imageAlt: "Family tree poster drawing with named branches for relatives",
-    href: "/family-tree-poster",
+    href: "/family-tree-poster/",
   },
 ];
 
@@ -350,7 +350,7 @@ export const learningRoadmap: RoadmapStep[] = [
     description: "Circles, ovals, and lines become your tree blueprint.",
     image: "/images/roadmap/basic-shapes.jpg",
     imageAlt: "Basic shapes stage: circle canopy and rectangle trunk outlines",
-    href: "/tutorial-step/basic-shapes",
+    href: "/basic-shapes/",
   },
   {
     id: "trunk",
@@ -358,7 +358,7 @@ export const learningRoadmap: RoadmapStep[] = [
     description: "Draw a strong trunk that anchors the whole tree.",
     image: "/images/roadmap/trunk.jpg",
     imageAlt: "Trunk stage: thick tree trunk in progress without full canopy",
-    href: "/tutorial-step/trunk",
+    href: "/trunk/",
   },
   {
     id: "branches",
@@ -366,7 +366,7 @@ export const learningRoadmap: RoadmapStep[] = [
     description: "Split thicker limbs into thinner natural forks.",
     image: "/images/roadmap/branches.jpg",
     imageAlt: "Branches stage: bare trunk with forking branches being drawn",
-    href: "/tutorial-step/branches",
+    href: "/branches/",
   },
   {
     id: "leaves",
@@ -374,7 +374,7 @@ export const learningRoadmap: RoadmapStep[] = [
     description: "Cluster leaf shapes or soft cloud canopies.",
     image: "/images/roadmap/leaves.jpg",
     imageAlt: "Leaves stage: tree with leafy clusters being added to branches",
-    href: "/tutorial-step/leaves",
+    href: "/leaves/",
   },
   {
     id: "shadows",
@@ -382,7 +382,7 @@ export const learningRoadmap: RoadmapStep[] = [
     description: "Add light and shade so the tree feels three-dimensional.",
     image: "/images/roadmap/shadows.jpg",
     imageAlt: "Shadows stage: tree drawing with shading on trunk and canopy",
-    href: "/tutorial-step/shadows",
+    href: "/shadows/",
   },
   {
     id: "color",
@@ -390,7 +390,7 @@ export const learningRoadmap: RoadmapStep[] = [
     description: "Bring your tree to life with greens, browns, and accents.",
     image: "/images/roadmap/color.jpg",
     imageAlt: "Color stage: finished tree with green leaves and brown trunk colored in",
-    href: "/tutorial-step/color",
+    href: "/color/",
   },
 ];
 
@@ -587,9 +587,9 @@ export const faqs: FaqItem[] = [
 ];
 
 export const navLinks = [
-  { label: "Home", href: "/easy-and-simple-tree-drawing" },
-  { label: "Drawing Tutorials", href: "/easy-and-simple-tree-drawing#tree-drawing-guide" },
-  { label: "About Us", href: "/about" },
-  { label: "FAQs", href: "/easy-and-simple-tree-drawing#faqs" },
-  { label: "Contact Us", href: "/contact" },
+  { label: "Home", href: "/easy-and-simple-tree-drawing/" },
+  { label: "Drawing Tutorials", href: "/easy-and-simple-tree-drawing/#tree-drawing-guide" },
+  { label: "About Us", href: "/about/" },
+  { label: "FAQs", href: "/easy-and-simple-tree-drawing/#faqs" },
+  { label: "Contact Us", href: "/contact/" },
 ] as const;

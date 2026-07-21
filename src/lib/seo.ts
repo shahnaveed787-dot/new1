@@ -4,7 +4,17 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://treedraw.studio";
 
 export function absoluteUrl(path = "/"): string {
   if (path.startsWith("http")) return path;
-  const normalized = path.startsWith("/") ? path : `/${path}`;
+  let normalized = path.startsWith("/") ? path : `/${path}`;
+  // Prefer WordPress-style trailing slash on content paths (not files/query)
+  if (
+    normalized !== "/" &&
+    !normalized.includes("?") &&
+    !normalized.includes("#") &&
+    !normalized.includes(".") &&
+    !normalized.endsWith("/")
+  ) {
+    normalized = `${normalized}/`;
+  }
   return `${SITE_URL.replace(/\/$/, "")}${normalized}`;
 }
 
@@ -94,7 +104,7 @@ export function buildWebSiteSchema() {
     url: absoluteUrl("/"),
     potentialAction: {
       "@type": "SearchAction",
-      target: `${absoluteUrl("/easy-and-simple-tree-drawing")}?q={search_term_string}`,
+      target: `${absoluteUrl("/easy-and-simple-tree-drawing/")}?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };

@@ -9,7 +9,7 @@ type LogoProps = {
 
 export function Logo({
   variant = "horizontal",
-  href = "/easy-and-simple-tree-drawing",
+  href = "/easy-and-simple-tree-drawing/",
   tone = "light",
 }: LogoProps) {
   const stacked = variant === "stacked";

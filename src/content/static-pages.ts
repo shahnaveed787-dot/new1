@@ -18,11 +18,11 @@ export type StaticPage = {
 };
 
 export const importantPages = [
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Disclaimer", href: "/disclaimer" },
-  { label: "Terms and Conditions", href: "/terms-and-conditions" },
+  { label: "About", href: "/about/" },
+  { label: "Contact", href: "/contact/" },
+  { label: "Privacy Policy", href: "/privacy-policy/" },
+  { label: "Disclaimer", href: "/disclaimer/" },
+  { label: "Terms and Conditions", href: "/terms-and-conditions/" },
 ] as const;
 
 export const aboutPage: StaticPage = {
