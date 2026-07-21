@@ -1,11 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // No basePath — homepage is /easy-and-simple-tree-drawing
-  // Laragon uses Apache proxy: /new1/* → http://127.0.0.1:3000/*
+  // Site home is domain root (/). Pages & posts use /%postname%/.
+  // Laragon may proxy: /new1/* → http://127.0.0.1:3000/*
   poweredByHeader: false,
   compress: true,
-  // WordPress-style postname permalinks: /%postname%/
+  // WordPress-style postname permalinks for pages/posts: /%postname%/
   trailingSlash: true,
   images: {
     formats: ["image/avif", "image/webp"],
@@ -20,6 +20,17 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Former home slug → domain root (home is not a postname URL)
+      {
+        source: "/easy-and-simple-tree-drawing",
+        destination: "/",
+        permanent: true,
+      },
+      {
+        source: "/easy-and-simple-tree-drawing/",
+        destination: "/",
+        permanent: true,
+      },
       // Old learning-path prefix → postname
       {
         source: "/tutorial-step/:slug",

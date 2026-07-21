@@ -1,6 +1,6 @@
 import type { FaqItem } from "@/content/homepage";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://treedraw.studio";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://treedrawing.us";
 
 export function absoluteUrl(path = "/"): string {
   if (path.startsWith("http")) return path;
@@ -104,7 +104,7 @@ export function buildWebSiteSchema() {
     url: absoluteUrl("/"),
     potentialAction: {
       "@type": "SearchAction",
-      target: `${absoluteUrl("/easy-and-simple-tree-drawing/")}?q={search_term_string}`,
+      target: `${absoluteUrl("/")}?q={search_term_string}`,
       "query-input": "required name=search_term_string",
     },
   };

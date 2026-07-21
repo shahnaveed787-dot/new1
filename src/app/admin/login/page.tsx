@@ -55,7 +55,7 @@ export default async function AdminLoginPage({ searchParams }: Props) {
 
       <p className="mt-8 text-center">
         <Link
-          href="/easy-and-simple-tree-drawing/"
+          href="/"
           className="font-bold text-green-dark underline decoration-sky underline-offset-2"
         >
           Back to site

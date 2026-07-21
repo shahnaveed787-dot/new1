@@ -6,7 +6,7 @@
 export const siteConfig = {
   name: "TreeDraw",
   tagline: "Learn to draw trees, one friendly step at a time",
-  url: "https://treedraw.studio",
+  url: "https://treedrawing.us",
   locale: "en",
 } as const;
 
@@ -14,7 +14,8 @@ export const homepageMeta = {
   title: "Easy and Simple Tree Drawing | Free Beginner Tutorials | 2026",
   description:
     "Learn tree drawing with easy step-by-step tutorials. Master tree sketch drawing and tree pencil drawing techniques to create realistic trees for all levels.",
-  canonicalPath: "/easy-and-simple-tree-drawing/",
+  /** Domain root is the site home (not a postname slug). */
+  canonicalPath: "/",
 } as const;
 
 export const heroContent = {
@@ -587,9 +588,9 @@ export const faqs: FaqItem[] = [
 ];
 
 export const navLinks = [
-  { label: "Home", href: "/easy-and-simple-tree-drawing/" },
-  { label: "Drawing Tutorials", href: "/easy-and-simple-tree-drawing/#tree-drawing-guide" },
+  { label: "Home", href: "/" },
+  { label: "Drawing Tutorials", href: "/#tree-drawing-guide" },
   { label: "About Us", href: "/about/" },
-  { label: "FAQs", href: "/easy-and-simple-tree-drawing/#faqs" },
+  { label: "FAQs", href: "/#faqs" },
   { label: "Contact Us", href: "/contact/" },
 ] as const;

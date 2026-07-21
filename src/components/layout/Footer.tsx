@@ -8,10 +8,10 @@ const socialLinks = [
 ] as const;
 
 const exploreLinks = [
-  { label: "Home", href: "/easy-and-simple-tree-drawing/" },
-  { label: "Drawing Tutorials", href: "/easy-and-simple-tree-drawing/#tree-drawing-guide" },
+  { label: "Home", href: "/" },
+  { label: "Drawing Tutorials", href: "/#tree-drawing-guide" },
   { label: "About", href: "/about/" },
-  { label: "FAQ", href: "/easy-and-simple-tree-drawing/#faqs" },
+  { label: "FAQ", href: "/#faqs" },
   { label: "Contact", href: "/contact/" },
 ] as const;
 

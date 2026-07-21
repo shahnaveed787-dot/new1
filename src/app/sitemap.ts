@@ -4,22 +4,18 @@ import { importantPages } from "@/content/static-pages";
 import { drawingCategories } from "@/content/homepage";
 import { POST_SLUGS, permalink, categoryPermalink } from "@/lib/permalinks";
 
-/** Sitemap lists WordPress-style postname URLs only (/%postname%/). */
+/**
+ * Home is the domain root. Pages/posts use WordPress-style /%postname%/.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date("2026-07-18");
 
   return [
     {
-      url: absoluteUrl(permalink("easy-and-simple-tree-drawing")),
-      lastModified: today,
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
       url: absoluteUrl("/"),
       lastModified: today,
       changeFrequency: "weekly",
-      priority: 0.9,
+      priority: 1,
     },
     ...importantPages.map((page) => ({
       url: absoluteUrl(permalink(page.href)),

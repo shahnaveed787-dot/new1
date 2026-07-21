@@ -12,7 +12,7 @@ export function permalink(slugOrPath: string): string {
 
   if (!cleaned) return "/";
 
-  // Allow in-page hashes: easy-and-simple-tree-drawing#faqs
+  // Allow in-page hashes on any path: /#faqs or /about/#section
   const [pathPart, hash] = cleaned.split("#");
   const path = `/${pathPart.replace(/^\/+|\/+$/g, "")}/`;
   return hash ? `${path}#${hash}` : path;

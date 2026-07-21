@@ -36,7 +36,7 @@ export default async function AdminDashboardPage() {
               Homepage and important pages are public. This dashboard is session-protected.
             </p>
             <Link
-              href="/easy-and-simple-tree-drawing/"
+              href="/"
               className="mt-4 inline-flex font-bold text-green-dark underline decoration-sky underline-offset-2"
             >
               View public homepage

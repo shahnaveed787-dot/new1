@@ -16,7 +16,7 @@ export function ComingSoon({
       <h1 className="mt-8 font-display text-4xl text-ink md:text-5xl">{title}</h1>
       <p className="mt-4 max-w-lg text-lg text-ink-muted">{description}</p>
       <Link
-        href="/easy-and-simple-tree-drawing/"
+        href="/"
         className="touch-target mt-8 inline-flex items-center justify-center rounded-button bg-accent-coral px-6 py-3 font-bold text-white hover:bg-accent-coral-dark"
       >
         Back to homepage
