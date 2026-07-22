@@ -3,6 +3,7 @@ import { Baloo_2, Nunito } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { homepageMeta, siteConfig } from "@/content/homepage";
+import { PREFERRED_SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
 const baloo = Baloo_2({
@@ -30,7 +31,8 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  // Always apex (non-www) so canonicals never point at www.
+  metadataBase: new URL(PREFERRED_SITE_URL),
   title: {
     default: homepageMeta.title,
     template: `%s | ${siteConfig.name}`,
@@ -44,6 +46,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
+    url: PREFERRED_SITE_URL,
   },
 };
 

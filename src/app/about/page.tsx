@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { StaticContentPage } from "@/components/marketing/StaticContentPage";
 import { aboutPage } from "@/content/static-pages";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   },
   description: aboutPage.metaDescription,
   alternates: {
-    canonical: `/${aboutPage.slug}`,
+    canonical: absoluteUrl(`/${aboutPage.slug}`),
   },
 };
 

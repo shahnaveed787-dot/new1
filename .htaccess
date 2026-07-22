@@ -1,6 +1,13 @@
 # Defense in depth if Apache ever serves this folder directly
 Options -Indexes
 
+# Force apex host (non-www) so www never competes with the canonical URL.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.treedrawing\.us$ [NC]
+  RewriteRule ^ https://treedrawing.us%{REQUEST_URI} [R=308,L]
+</IfModule>
+
 <FilesMatch "(?i)^\.(env|git)">
   Require all denied
 </FilesMatch>

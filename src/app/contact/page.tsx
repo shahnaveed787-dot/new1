@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Contact } from "@/components/marketing/Contact";
 import { contactPage } from "@/content/static-pages";
+import { absoluteUrl } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -8,7 +9,7 @@ export const metadata: Metadata = {
   },
   description: contactPage.metaDescription,
   alternates: {
-    canonical: `/${contactPage.slug}`,
+    canonical: absoluteUrl(`/${contactPage.slug}`),
   },
 };
 

@@ -35,8 +35,20 @@ async function hasValidAdminSession(request: NextRequest) {
   return Boolean(session);
 }
 
+const PREFERRED_HOST = "treedrawing.us";
+
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const host = request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
+
+  // Prefer apex host so www and non-www never compete in search results.
+  if (host === `www.${PREFERRED_HOST}`) {
+    const url = request.nextUrl.clone();
+    url.protocol = "https:";
+    url.host = PREFERRED_HOST;
+    url.port = "";
+    return withSecurityHeaders(NextResponse.redirect(url, 308));
+  }
 
   if (pathname.startsWith("/admin") && pathname !== "/admin/login") {
     if (!(await hasValidAdminSession(request))) {

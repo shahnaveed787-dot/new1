@@ -17,6 +17,7 @@ import {
   heroContent,
 } from "@/content/homepage";
 import {
+  absoluteUrl,
   buildArticleSchema,
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -31,12 +32,12 @@ export const metadata: Metadata = {
   },
   description: homepageMeta.description,
   alternates: {
-    canonical: homepageMeta.canonicalPath,
+    canonical: absoluteUrl("/"),
   },
   openGraph: {
     title: homepageMeta.title,
     description: homepageMeta.description,
-    url: homepageMeta.canonicalPath,
+    url: absoluteUrl("/"),
     type: "website",
   },
 };

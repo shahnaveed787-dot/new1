@@ -1,6 +1,21 @@
 import type { FaqItem } from "@/content/homepage";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://treedrawing.us";
+/** Preferred production origin (apex, no www). */
+export const PREFERRED_SITE_URL = "https://treedrawing.us";
+
+function resolveSiteUrl(): string {
+  const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
+  // Never bake localhost into canonicals / sitemap / JSON-LD.
+  if (!fromEnv || /localhost|127\.0\.0\.1/i.test(fromEnv)) {
+    return PREFERRED_SITE_URL;
+  }
+  // Normalize accidental www to apex.
+  return fromEnv.replace("://www.", "://");
+}
+
+export function getSiteUrl(): string {
+  return resolveSiteUrl();
+}
 
 export function absoluteUrl(path = "/"): string {
   if (path.startsWith("http")) return path;
@@ -15,7 +30,7 @@ export function absoluteUrl(path = "/"): string {
   ) {
     normalized = `${normalized}/`;
   }
-  return `${SITE_URL.replace(/\/$/, "")}${normalized}`;
+  return `${resolveSiteUrl()}${normalized}`;
 }
 
 export function buildOrganizationSchema() {
