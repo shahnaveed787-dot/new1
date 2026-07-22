@@ -11,7 +11,7 @@ export const siteConfig = {
 } as const;
 
 export const homepageMeta = {
-  title: "Easy and Simple Tree Drawing | Free Tutorials 2026",
+  title: "Easy and Simple Tree Drawing Tutorial | Beginner to Pro",
   description:
     "Learn tree drawing with easy step-by-step tutorials. Master tree sketch drawing and tree pencil drawing techniques to create realistic trees for all levels.",
   /** Domain root is the site home (not a postname slug). */
