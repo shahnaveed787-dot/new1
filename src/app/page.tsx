@@ -17,11 +17,12 @@ import {
   heroContent,
   learningRoadmap,
 } from "@/content/homepage";
+import { buildPageMetadata } from "@/lib/page-metadata";
 import {
-  absoluteUrl,
   buildArticleSchema,
   buildBreadcrumbSchema,
   buildFaqSchema,
+  buildHowToDrawTreeSchema,
   buildImageObjectsSchema,
   buildOrganizationSchema,
   buildWebSiteSchema,
@@ -50,39 +51,18 @@ const homepageImages = [
   })),
 ];
 
-export const metadata: Metadata = {
-  title: {
-    absolute: homepageMeta.title,
-  },
+export const metadata: Metadata = buildPageMetadata({
+  title: homepageMeta.title,
   description: homepageMeta.description,
-  alternates: {
-    canonical: absoluteUrl("/"),
+  path: homepageMeta.canonicalPath,
+  ogType: "website",
+  image: {
+    url: HERO_IMAGE,
+    width: 720,
+    height: 640,
+    alt: "easy tree drawing",
   },
-  openGraph: {
-    title: homepageMeta.title,
-    description: homepageMeta.description,
-    url: absoluteUrl("/"),
-    type: "website",
-    images: [
-      {
-        url: HERO_IMAGE,
-        width: 720,
-        height: 640,
-        alt: "easy tree drawing",
-      },
-      {
-        url: guideSectionStepByStep.image,
-        alt: guideSectionStepByStep.imageAlt,
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: homepageMeta.title,
-    description: homepageMeta.description,
-    images: [HERO_IMAGE],
-  },
-};
+});
 
 /** Site home — lives at domain root (https://treedrawing.us/), not a postname slug. */
 export default function HomePage() {
@@ -93,9 +73,12 @@ export default function HomePage() {
       headline: heroContent.h1,
       description: homepageMeta.description,
       path: homepageMeta.canonicalPath,
+      datePublished: "2026-07-18",
+      dateModified: "2026-07-23",
       sectionHeadings: guideSections.map((s) => s.heading),
       images: homepageImages.map((image) => image.url),
     }),
+    buildHowToDrawTreeSchema(),
     ...buildImageObjectsSchema(homepageImages),
     buildFaqSchema(faqs),
     buildBreadcrumbSchema([{ name: "Home", path: "/" }]),

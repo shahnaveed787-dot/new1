@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import { StaticContentPage } from "@/components/marketing/StaticContentPage";
 import { termsPage } from "@/content/static-pages";
-import { absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: termsPage.metaTitle,
-  },
+export const metadata: Metadata = buildPageMetadata({
+  title: termsPage.metaTitle,
   description: termsPage.metaDescription,
-  alternates: {
-    canonical: absoluteUrl(`/${termsPage.slug}`),
-  },
-};
+  path: `/${termsPage.slug}/`,
+});
 
 export default function TermsAndConditionsPage() {
   return <StaticContentPage page={termsPage} />;

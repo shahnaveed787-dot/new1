@@ -28,9 +28,9 @@ export const importantPages = [
 export const aboutPage: StaticPage = {
   slug: "about",
   title: "About Us",
-  metaTitle: "About TreeDraw | Easy and Simple Tree Drawing",
+  metaTitle: "About TreeDraw | Easy & Simple Tree Drawing Lessons",
   metaDescription:
-    "Learn about TreeDraw — a friendly educational platform for easy and simple tree drawing for kids, parents, teachers, and beginners.",
+    "Learn about TreeDraw, a friendly educational platform for easy and simple tree drawing. Lessons for kids, parents, teachers, and beginners who want clear steps.",
   intro:
     "TreeDraw is a colorful learning home for anyone who wants to draw trees with confidence. We build clear, step-by-step lessons that feel like a product kids and adults can grow with — not a cluttered blog feed.",
   updatedLabel: "Updated July 18, 2026",
@@ -53,7 +53,7 @@ export const aboutPage: StaticPage = {
       heading: "How TreeDraw is different",
       paragraphs: [
         "We focus deeply on trees because they teach proportion, branching, texture, and color in one friendly subject. Mastering trees builds skills that transfer to landscapes and storytelling art later.",
-        "The homepage owns the “easy and simple tree drawing” learning path. Category and tutorial pages will grow around that core with the same post-name permalink style — clean URLs like /pine-tree-drawing, never dated archive links.",
+        "The homepage owns the “easy and simple tree drawing” learning path. Future tutorial pages will grow around that core with clean post-name permalinks.",
       ],
     },
   ],
@@ -62,9 +62,9 @@ export const aboutPage: StaticPage = {
 export const contactPage = {
   slug: "contact",
   title: "Contact Us",
-  metaTitle: "Contact TreeDraw | Questions & Classroom Requests",
+  metaTitle: "Contact TreeDraw | Support for Tree Drawing Lessons",
   metaDescription:
-    "Contact TreeDraw with questions about tree drawing lessons, classroom use, or feedback. We love hearing from parents, teachers, and young artists.",
+    "Contact TreeDraw with questions about tree drawing lessons, classroom use, or feedback. Parents, teachers, and young artists — we read every message you send.",
   intro:
     "Have a question, a classroom idea, or a tree style you want us to teach next? Send a note — we read every message from parents, teachers, and young artists.",
   email: "hello@treedraw.studio",
@@ -74,9 +74,9 @@ export const contactPage = {
 export const privacyPolicyPage: StaticPage = {
   slug: "privacy-policy",
   title: "Privacy Policy",
-  metaTitle: "Privacy Policy | TreeDraw",
+  metaTitle: "Privacy Policy | TreeDraw Cookies & Data Practices",
   metaDescription:
-    "Read the TreeDraw Privacy Policy to learn how we handle information on our easy and simple tree drawing educational website.",
+    "Read the TreeDraw Privacy Policy to learn how we collect, use, and protect information on our easy and simple tree drawing educational website for families.",
   intro:
     "Your privacy matters. This Privacy Policy explains what information TreeDraw may collect, how we use it, and the choices you have while using our educational website.",
   updatedLabel: "Effective July 18, 2026",
@@ -92,7 +92,7 @@ export const privacyPolicyPage: StaticPage = {
       heading: "How we use information",
       paragraphs: [
         "We use contact details to answer questions, improve lessons, and — only if you opt in — send occasional drawing prompts or product updates. We do not sell personal information.",
-        "If analytics tools are added later, we will prefer privacy-respecting options and update this page accordingly.",
+        "We use Google Analytics to understand aggregate traffic and improve the site. Analytics data is processed according to Google’s policies and our configuration for this educational website.",
       ],
     },
     {
@@ -104,7 +104,7 @@ export const privacyPolicyPage: StaticPage = {
     {
       heading: "Cookies and local storage",
       paragraphs: [
-        "Essential cookies or local storage may be used so the site works correctly (for example, remembering basic preferences). We do not run third-party ad trackers on the homepage today.",
+        "Essential cookies or local storage may be used so the site works correctly (for example, remembering basic preferences). Analytics cookies may be set by Google Analytics to measure site usage.",
       ],
     },
     {
@@ -125,9 +125,9 @@ export const privacyPolicyPage: StaticPage = {
 export const disclaimerPage: StaticPage = {
   slug: "disclaimer",
   title: "Disclaimer",
-  metaTitle: "Disclaimer | TreeDraw",
+  metaTitle: "Disclaimer | TreeDraw Educational Content Boundaries",
   metaDescription:
-    "TreeDraw disclaimer for educational tree drawing content, results, and third-party links.",
+    "Read the TreeDraw disclaimer covering educational tree drawing content, learning results, third-party links, and adult supervision guidance for families.",
   intro:
     "TreeDraw provides educational art content for learning and enjoyment. Please read this disclaimer so expectations stay clear for families, teachers, and learners.",
   updatedLabel: "Effective July 18, 2026",
@@ -143,7 +143,7 @@ export const disclaimerPage: StaticPage = {
       heading: "No guarantees",
       paragraphs: [
         "We work hard to keep lessons clear and friendly, but we do not guarantee specific skill results, classroom outcomes, or uninterrupted site availability.",
-        "Placeholder tutorial and category pages may appear as “coming soon” while we build the full library.",
+        "New tutorial pages may appear over time as we expand the learning library around the homepage path.",
       ],
     },
     {
@@ -164,9 +164,9 @@ export const disclaimerPage: StaticPage = {
 export const termsPage: StaticPage = {
   slug: "terms-and-conditions",
   title: "Terms and Conditions",
-  metaTitle: "Terms and Conditions | TreeDraw",
+  metaTitle: "Terms and Conditions | TreeDraw Website Use Policy",
   metaDescription:
-    "Terms and Conditions for using TreeDraw’s easy and simple tree drawing website and educational materials.",
+    "Terms and Conditions for using TreeDraw’s easy and simple tree drawing website, educational materials, and related services for families and teachers.",
   intro:
     "Welcome to TreeDraw. By using this website, you agree to these Terms and Conditions. If you do not agree, please do not use the site.",
   updatedLabel: "Effective July 18, 2026",

@@ -39,12 +39,68 @@ export function absoluteUrl(path = "/"): string {
 export function buildOrganizationSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "EducationalOrganization"],
     name: "TreeDraw",
+    alternateName: "Tree Drawing",
     url: absoluteUrl("/"),
     description:
-      "Premium educational platform for easy and simple tree drawing tutorials for kids, beginners, parents, and teachers.",
-    logo: absoluteUrl("/images/perf/v2/logo.webp"),
+      "Educational platform for easy and simple tree drawing tutorials for kids, beginners, parents, and teachers.",
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl("/images/perf/v2/logo.webp"),
+    },
+    image: absoluteUrl("/images/perf/v2/hero.webp"),
+    email: "hello@treedraw.studio",
+    foundingDate: "2026",
+    areaServed: "Worldwide",
+    knowsAbout: [
+      "tree drawing",
+      "drawing of a tree",
+      "pencil tree drawing",
+      "cartoon tree drawing",
+      "art education for children",
+    ],
+  };
+}
+
+export function buildWebPageSchema(input: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: input.name,
+    description: input.description,
+    url: absoluteUrl(input.path),
+    isPartOf: {
+      "@type": "WebSite",
+      name: "TreeDraw",
+      url: absoluteUrl("/"),
+    },
+    inLanguage: "en",
+  };
+}
+
+export function buildWebSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "TreeDraw",
+    alternateName: "Tree Drawing",
+    url: absoluteUrl("/"),
+    description:
+      "Easy and simple tree drawing tutorials for beginners, kids, parents, and teachers.",
+    publisher: {
+      "@type": "Organization",
+      name: "TreeDraw",
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/images/perf/v2/logo.webp"),
+      },
+    },
+    inLanguage: "en",
   };
 }
 
@@ -142,17 +198,52 @@ export function buildBreadcrumbSchema(
   };
 }
 
-export function buildWebSiteSchema() {
+export function buildHowToDrawTreeSchema() {
   return {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    name: "TreeDraw",
-    url: absoluteUrl("/"),
-    potentialAction: {
-      "@type": "SearchAction",
-      target: `${absoluteUrl("/")}?q={search_term_string}`,
-      "query-input": "required name=search_term_string",
-    },
+    "@type": "HowTo",
+    name: "How to Draw a Tree Step by Step",
+    description:
+      "Learn easy and simple tree drawing with a clear beginner sequence from basic shapes to color.",
+    image: absoluteUrl("/images/perf/v2/guides/step-by-step.webp"),
+    totalTime: "PT20M",
+    tool: [
+      { "@type": "HowToTool", name: "Pencil" },
+      { "@type": "HowToTool", name: "Paper" },
+      { "@type": "HowToTool", name: "Eraser" },
+    ],
+    step: [
+      {
+        "@type": "HowToStep",
+        position: 1,
+        name: "Mark the ground and trunk",
+        text: "Sketch a ground line and a light trunk that anchors the tree.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 2,
+        name: "Add a basic canopy shape",
+        text: "Draw a soft canopy oval or cloud shape that stays light and erasable.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 3,
+        name: "Grow the branches",
+        text: "Add branches that get thinner as they reach outward.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 4,
+        name: "Cluster leaves or needles",
+        text: "Place leaf or needle clusters instead of drawing every leaf.",
+      },
+      {
+        "@type": "HowToStep",
+        position: 5,
+        name: "Deepen lines and add shadow",
+        text: "Strengthen final lines and add a simple ground shadow for depth.",
+      },
+    ],
   };
 }
 

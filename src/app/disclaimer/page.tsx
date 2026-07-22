@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import { StaticContentPage } from "@/components/marketing/StaticContentPage";
 import { disclaimerPage } from "@/content/static-pages";
-import { absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: disclaimerPage.metaTitle,
-  },
+export const metadata: Metadata = buildPageMetadata({
+  title: disclaimerPage.metaTitle,
   description: disclaimerPage.metaDescription,
-  alternates: {
-    canonical: absoluteUrl(`/${disclaimerPage.slug}`),
-  },
-};
+  path: `/${disclaimerPage.slug}/`,
+});
 
 export default function DisclaimerPage() {
   return <StaticContentPage page={disclaimerPage} />;

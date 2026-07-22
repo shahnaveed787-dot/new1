@@ -39,15 +39,47 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: homepageMeta.description,
+  applicationName: siteConfig.name,
+  authors: [{ name: "TreeDraw", url: PREFERRED_SITE_URL }],
+  creator: "TreeDraw",
+  publisher: "TreeDraw",
+  category: "education",
+  keywords: [
+    "tree drawing",
+    "easy tree drawing",
+    "simple tree drawing",
+    "how to draw a tree",
+    "drawing of a tree",
+    "pencil tree drawing",
+  ],
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
     siteName: siteConfig.name,
     type: "website",
     locale: "en_US",
     url: PREFERRED_SITE_URL,
+    title: homepageMeta.title,
+    description: homepageMeta.description,
     images: [
       {
         url: "/images/perf/v2/hero.webp",
@@ -59,6 +91,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    title: homepageMeta.title,
+    description: homepageMeta.description,
     images: ["/images/perf/v2/hero.webp"],
   },
 };

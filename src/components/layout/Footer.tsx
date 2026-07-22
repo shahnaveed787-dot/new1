@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { Logo } from "@/components/layout/Logo";
 
-const socialLinks = [
-  { label: "YouTube", href: "https://youtube.com", icon: "YT" },
-  { label: "Pinterest", href: "https://pinterest.com", icon: "Pin" },
-  { label: "Instagram", href: "https://instagram.com", icon: "IG" },
-] as const;
-
 const exploreLinks = [
   { label: "Home", href: "/" },
   { label: "Drawing Tutorials", href: "/#tree-drawing-guide" },
@@ -33,42 +27,41 @@ export function Footer() {
             Easy and simple tree drawing lessons for kids, parents, teachers, and
             curious beginners.
           </p>
-          <ul className="flex gap-2" aria-label="Social media">
-            {socialLinks.map((social) => (
-              <li key={social.label}>
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="touch-target inline-flex items-center justify-center rounded-full bg-white/10 px-3 py-2 text-sm font-bold hover:bg-white/20"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <p className="text-sm text-cream/60">
+            Social profiles coming soon — follow updates via our{" "}
+            <Link
+              href="/contact/"
+              className="font-bold text-cream underline underline-offset-2 hover:text-white"
+            >
+              Contact page
+            </Link>
+            .
+          </p>
         </div>
-
         <div>
-          <p className="font-display text-xl text-sun">Explore</p>
+          <p className="font-display text-xl text-cream">Explore</p>
           <ul className="mt-4 space-y-2">
             {exploreLinks.map((item) => (
               <li key={item.href + item.label}>
-                <Link className="hover:text-sun" href={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-cream/85 hover:text-white hover:underline"
+                >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
-
         <div>
-          <p className="font-display text-xl text-sun">Important</p>
+          <p className="font-display text-xl text-cream">Important</p>
           <ul className="mt-4 space-y-2">
             {importantLinks.map((item) => (
-              <li key={item.href + item.label}>
-                <Link className="hover:text-sun" href={item.href}>
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className="text-cream/85 hover:text-white hover:underline"
+                >
                   {item.label}
                 </Link>
               </li>
@@ -76,8 +69,8 @@ export function Footer() {
           </ul>
         </div>
       </div>
-      <div className="border-t border-white/10 py-4 text-center text-sm text-cream/70">
-        © {new Date().getFullYear()} TreeDraw. Learn trees, grow creativity.
+      <div className="border-t border-white/10 px-4 py-6 text-center text-sm text-cream/60 sm:px-6">
+        © {new Date().getFullYear()} TreeDraw. All rights reserved.
       </div>
     </footer>
   );

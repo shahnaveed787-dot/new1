@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
 import { StaticContentPage } from "@/components/marketing/StaticContentPage";
 import { aboutPage } from "@/content/static-pages";
-import { absoluteUrl } from "@/lib/seo";
+import { buildPageMetadata } from "@/lib/page-metadata";
 
-export const metadata: Metadata = {
-  title: {
-    absolute: aboutPage.metaTitle,
-  },
+export const metadata: Metadata = buildPageMetadata({
+  title: aboutPage.metaTitle,
   description: aboutPage.metaDescription,
-  alternates: {
-    canonical: absoluteUrl(`/${aboutPage.slug}`),
-  },
-};
+  path: `/${aboutPage.slug}/`,
+});
 
 export default function AboutPage() {
   return <StaticContentPage page={aboutPage} />;
