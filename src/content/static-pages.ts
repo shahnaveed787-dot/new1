@@ -62,8 +62,7 @@ export const contactPage = {
   slug: "contact",
   title: "Contact Us",
   metaTitle: "Contact Us",
-  metaDescription:
-    "Contact TreeDraw about tree drawing lessons, classroom use, or feedback. Email hello@treedraw.studio — parents, teachers, and young artists, we read every message.",
+  metaDescription: "hello@treedraw.studio",
   intro:
     "Have a question, a classroom idea, or a tree style you want us to teach next? Send a note — we read every message from parents, teachers, and young artists.",
   email: "hello@treedraw.studio",
