@@ -31,7 +31,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // Always www so canonical matches the host your DNS/CDN already uses.
+  // Preferred host is apex (https://treedrawing.us) — no www.
   metadataBase: new URL(PREFERRED_SITE_URL),
   title: {
     default: homepageMeta.title,

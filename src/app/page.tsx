@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
 };
 
-/** Site home — lives at domain root (https://www.treedrawing.us/), not a postname slug. */
+/** Site home — lives at domain root (https://treedrawing.us/), not a postname slug. */
 export default function HomePage() {
   const schemas = [
     buildOrganizationSchema(),

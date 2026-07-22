@@ -1,7 +1,7 @@
 import type { FaqItem } from "@/content/homepage";
 
-/** Preferred production origin (hosting already forces www). */
-export const PREFERRED_SITE_URL = "https://www.treedrawing.us";
+/** Preferred production origin (apex, no www). */
+export const PREFERRED_SITE_URL = "https://treedrawing.us";
 
 function resolveSiteUrl(): string {
   const fromEnv = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "");
@@ -9,8 +9,8 @@ function resolveSiteUrl(): string {
   if (!fromEnv || /localhost|127\.0\.0\.1/i.test(fromEnv)) {
     return PREFERRED_SITE_URL;
   }
-  // Hosting already redirects apex → www; keep canonicals on www.
-  if (/^https?:\/\/treedrawing\.us$/i.test(fromEnv)) {
+  // Normalize accidental www to preferred apex host.
+  if (/^https?:\/\/www\.treedrawing\.us$/i.test(fromEnv)) {
     return PREFERRED_SITE_URL;
   }
   return fromEnv;
