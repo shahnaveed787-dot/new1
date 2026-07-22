@@ -62,9 +62,9 @@ export const aboutPage: StaticPage = {
 export const contactPage = {
   slug: "contact",
   title: "Contact Us",
-  metaTitle: "Contact TreeDraw | Support for Tree Drawing Lessons",
+  metaTitle: "Contact Us",
   metaDescription:
-    "Contact TreeDraw with questions about tree drawing lessons, classroom use, or feedback. Parents, teachers, and young artists — we read every message you send.",
+    "Contact TreeDraw about tree drawing lessons, classroom use, or feedback. Email hello@treedraw.studio — parents, teachers, and young artists, we read every message.",
   intro:
     "Have a question, a classroom idea, or a tree style you want us to teach next? Send a note — we read every message from parents, teachers, and young artists.",
   email: "hello@treedraw.studio",
