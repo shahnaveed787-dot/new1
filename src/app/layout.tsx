@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Baloo_2, Nunito } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { TreeSplash } from "@/components/layout/TreeSplash";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { homepageMeta, siteConfig } from "@/content/homepage";
 import { PREFERRED_SITE_URL } from "@/lib/seo";
@@ -105,6 +106,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${baloo.variable} ${nunito.variable} h-full`}>
       <body className="flex min-h-full flex-col antialiased">
+        <link
+          rel="preload"
+          as="image"
+          href="/images/perf/v2/splash-tree.webp"
+          type="image/webp"
+        />
+        <TreeSplash />
         <GoogleAnalytics />
         <a
           href="#main-content"

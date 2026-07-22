@@ -4,6 +4,7 @@ import Image from "next/image";
 type LogoProps = {
   variant?: "horizontal" | "stacked";
   href?: string;
+  /** "dark" = white logo for dark surfaces (no backdrop) */
   tone?: "light" | "dark";
 };
 
@@ -24,17 +25,23 @@ export function Logo({
       aria-label="Tree Drawing home"
     >
       <Image
-        src="/images/perf/v2/logo.webp"
+        src={
+          onDark
+            ? "/images/perf/v2/logo-footer-white.webp"
+            : "/images/perf/v2/logo.webp"
+        }
         alt="Tree Drawing — Draw Nature, Inspire Life"
-        width={512}
-        height={405}
-        className={`${
+        width={400}
+        height={400}
+        className={
           stacked
             ? "h-24 w-auto max-w-[200px] object-contain"
             : "h-14 w-auto max-w-[160px] object-contain sm:h-16 sm:max-w-[200px] md:h-20 md:max-w-[240px]"
-        }${onDark ? " brightness-0 invert" : ""}`}
+        }
         sizes="(max-width: 640px) 140px, 200px"
-        quality={75}
+        quality={90}
+        unoptimized={onDark}
+        priority={false}
       />
     </Link>
   );

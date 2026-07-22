@@ -11,7 +11,7 @@ export type SearchEntry = {
 export const searchDataset: SearchEntry[] = [
   {
     id: "home",
-    title: "Home — Easy and Simple Tree Drawing",
+    title: "Easy and Simple Tree Drawing | Free Tutorials 2026",
     category: "Explore",
     keywords: ["home", "tree", "drawing", "tutorials", "beginner"],
     href: "/",
