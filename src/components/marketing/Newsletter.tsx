@@ -19,8 +19,10 @@ export function Newsletter() {
             </p>
             <form
               className="mt-8 flex flex-col gap-3 sm:flex-row"
-              action={withBasePath("/coming-soon")}
+              action={withBasePath("/#newsletter")}
               method="get"
+              toolname="join_newsletter"
+              tooldescription="Join the TreeDraw newsletter for a free weekly tree sketch prompt."
             >
               <label htmlFor="newsletter-email" className="sr-only">
                 Email address
@@ -32,6 +34,7 @@ export function Newsletter() {
                 required
                 autoComplete="email"
                 placeholder="you@example.com"
+                toolparamdescription="Email address for the weekly tree sketch prompt"
                 className="touch-target min-w-0 flex-1 rounded-button border-0 px-4 py-3 text-ink placeholder:text-ink-muted focus:outline-none focus:ring-4 focus:ring-sun"
               />
               <button

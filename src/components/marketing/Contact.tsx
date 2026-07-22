@@ -49,9 +49,11 @@ export function Contact({ variant = "section" }: ContactProps) {
         </div>
         <form
           className="card-surface grid gap-4 p-6"
-          action={withBasePath("/coming-soon")}
+          action={withBasePath("/contact/")}
           method="get"
           aria-label="Contact form"
+          toolname="submit_contact_message"
+          tooldescription="Send a contact message to TreeDraw about tree drawing lessons, classroom use, or learning questions."
         >
           <div>
             <label htmlFor="contact-name" className="mb-1 block text-sm font-bold text-ink">
@@ -63,6 +65,7 @@ export function Contact({ variant = "section" }: ContactProps) {
               type="text"
               required
               autoComplete="name"
+              toolparamdescription="Visitor's full name"
               className="touch-target w-full rounded-button border-2 border-green/15 bg-cream px-4 py-2.5 text-ink focus:border-sky focus:outline-none"
             />
           </div>
@@ -76,6 +79,7 @@ export function Contact({ variant = "section" }: ContactProps) {
               type="email"
               required
               autoComplete="email"
+              toolparamdescription="Visitor's email address for a reply"
               className="touch-target w-full rounded-button border-2 border-green/15 bg-cream px-4 py-2.5 text-ink focus:border-sky focus:outline-none"
             />
           </div>
@@ -88,6 +92,7 @@ export function Contact({ variant = "section" }: ContactProps) {
               name="message"
               required
               rows={4}
+              toolparamdescription="Message about tree drawing help, lessons, or school use"
               className="w-full rounded-button border-2 border-green/15 bg-cream px-4 py-2.5 text-ink focus:border-sky focus:outline-none"
             />
           </div>

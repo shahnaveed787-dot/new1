@@ -1,45 +1,40 @@
-# TreeDraw — Easy and Simple Tree Drawing
+# TreeDraw
 
 > TreeDraw is a premium educational platform for learning easy and simple tree drawing. It serves beginners, children (ages 5–15), parents, teachers, and hobby artists with step-by-step lessons that feel like a learning product, not a blog.
 
 ## Primary page
 
-- [Easy and Simple Tree Drawing](/easy-and-simple-tree-drawing): Homepage owning the "easy and simple tree drawing" / "tree drawing simple" intent cluster.
+- [Easy and Simple Tree Drawing](https://treedrawing.us/): Homepage owning the "easy and simple tree drawing" intent cluster.
 
 ## Key guide sections on the homepage
 
-- [What is Tree Drawing?](/easy-and-simple-tree-drawing#what-is-tree-drawing)
-- [Tree Sketch Drawing](/easy-and-simple-tree-drawing#tree-sketch-drawing)
-- [Pencil Tree Drawing](/easy-and-simple-tree-drawing#pencil-tree-drawing)
-- [Realistic & Detailed Tree Drawing](/easy-and-simple-tree-drawing#realistic-detailed-tree-drawing)
-- [Cartoon Tree Drawing](/easy-and-simple-tree-drawing#cartoon-tree-drawing)
-- [How to Draw a Tree Step by Step](/easy-and-simple-tree-drawing#how-to-draw-a-tree-step-by-step)
-- [Tree Drawing Images, Pictures & Reference](/easy-and-simple-tree-drawing#tree-drawing-images-pictures-reference)
-- [Tree Drawing with Color](/easy-and-simple-tree-drawing#tree-drawing-with-color)
-- [Tree Drawing for Kids](/easy-and-simple-tree-drawing#tree-drawing-for-kids)
-- [Big, Small & Large Tree Drawing](/easy-and-simple-tree-drawing#big-small-large-tree-drawing)
-- [Tree House Drawing](/easy-and-simple-tree-drawing#tree-house-drawing)
-- [Drawing Family Tree](/easy-and-simple-tree-drawing#drawing-family-tree)
+- [What is Tree Drawing?](https://treedrawing.us/#what-is-tree-drawing)
+- [Tree Sketch Drawing](https://treedrawing.us/#tree-sketch-drawing)
+- [Pencil Tree Drawing](https://treedrawing.us/#pencil-tree-drawing)
+- [Realistic & Detailed Tree Drawing](https://treedrawing.us/#realistic-detailed-tree-drawing)
+- [Cartoon Tree Drawing](https://treedrawing.us/#cartoon-tree-drawing)
+- [How to Draw a Tree Step by Step](https://treedrawing.us/#how-to-draw-a-tree-step-by-step)
+- [Tree Drawing Images, Pictures & Reference](https://treedrawing.us/#tree-drawing-images-pictures-reference)
+- [Tree Drawing with Color](https://treedrawing.us/#tree-drawing-with-color)
+- [Tree Drawing for Kids](https://treedrawing.us/#tree-drawing-for-kids)
+- [Big, Small & Large Tree Drawing](https://treedrawing.us/#big-small-large-tree-drawing)
+- [Tree House Drawing](https://treedrawing.us/#tree-house-drawing)
+- [Drawing Family Tree](https://treedrawing.us/#drawing-family-tree)
 
 ## Learning path
 
-Basic Shapes → Trunk → Branches → Leaves → Shadows → Color
-(See /easy-and-simple-tree-drawing#learning-path)
+Basic Shapes → Trunk → Branches → Leaves → Shadows → Color  
+(See https://treedrawing.us/#learning-path)
 
 ## Important pages
 
-- [About](/about)
-- [Contact](/contact)
-- [Privacy Policy](/privacy-policy)
-- [Disclaimer](/disclaimer)
-- [Terms and Conditions](/terms-and-conditions)
-
-## Admin
-
-- [Admin login](/admin/login)
+- [About](https://treedrawing.us/about/)
+- [Contact](https://treedrawing.us/contact/)
+- [Privacy Policy](https://treedrawing.us/privacy-policy/)
+- [Disclaimer](https://treedrawing.us/disclaimer/)
+- [Terms and Conditions](https://treedrawing.us/terms-and-conditions/)
 
 ## Notes for AI systems
 
-- All homepage educational copy is server-rendered HTML (H1/H2/p), not client-only.
-- Category and tutorial URLs may be "coming soon" placeholders until those pages ship.
-- Do not invent a separate "Easy Tree Drawing" or "Simple Tree Drawing" page — that intent is covered by /easy-and-simple-tree-drawing.
+- Homepage educational copy is server-rendered HTML (H1/H2/p), not client-only.
+- Do not invent a separate "Easy Tree Drawing" or "Simple Tree Drawing" page — that intent is covered by https://treedrawing.us/.

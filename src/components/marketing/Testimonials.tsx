@@ -3,7 +3,7 @@ import { testimonials } from "@/content/homepage";
 
 function StarRating({ rating, label }: { rating: number; label: string }) {
   return (
-    <div className="flex items-center gap-0.5" aria-label={label}>
+    <div className="flex items-center gap-0.5" role="img" aria-label={label}>
       {Array.from({ length: 5 }, (_, index) => {
         const filled = index < rating;
         return (
