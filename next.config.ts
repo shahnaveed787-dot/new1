@@ -1,15 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Site home is domain root (/). Pages & posts use /%postname%/.
-  // Laragon may proxy: /new1/* → http://127.0.0.1:3000/*
+  // Site home is domain root (/). Published pages use /%postname%/.
   poweredByHeader: false,
   compress: true,
-  // WordPress-style postname permalinks for pages/posts: /%postname%/
   trailingSlash: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    // Next 16 defaults to qualities:[75] only — other q= values 400 and break images
     qualities: [60, 70, 72, 75, 80],
     deviceSizes: [384, 640, 750, 828, 1080, 1200],
     imageSizes: [64, 96, 128, 256, 384],
@@ -20,7 +17,6 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Former home slug → domain root (home is not a postname URL)
       {
         source: "/easy-and-simple-tree-drawing",
         destination: "/",
@@ -31,18 +27,17 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
-      // Old learning-path prefix → postname
+      // Unpublished legacy paths → home (no coming-soon URLs)
       {
-        source: "/tutorial-step/:slug",
-        destination: "/:slug/",
+        source: "/tutorial-step/:slug*",
+        destination: "/",
         permanent: true,
       },
       {
-        source: "/tutorial-step/:slug/",
-        destination: "/:slug/",
+        source: "/category/:slug*",
+        destination: "/",
         permanent: true,
       },
-      // Common alias
       {
         source: "/terms",
         destination: "/terms-and-conditions/",
