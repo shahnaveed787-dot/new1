@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Baloo_2, Nunito } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { homepageMeta, siteConfig } from "@/content/homepage";
 import { PREFERRED_SITE_URL } from "@/lib/seo";
 import "./globals.css";
@@ -58,6 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${baloo.variable} ${nunito.variable} h-full`}>
       <body className="flex min-h-full flex-col antialiased">
+        <GoogleAnalytics />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-button focus:bg-sun focus:px-4 focus:py-2 focus:font-bold focus:text-ink"
