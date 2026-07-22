@@ -36,6 +36,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: homepageMeta.description,
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     siteName: siteConfig.name,
     type: "website",
