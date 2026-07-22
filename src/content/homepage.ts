@@ -414,7 +414,7 @@ export const guideSectionStepByStep: GuideSection = {
   paragraph:
     "Learning drawing of a tree step by step keeps beginners from feeling overwhelmed. First, mark the ground and sketch a trunk. Second, add a basic canopy shape — this basic drawing of a tree stage should stay light and erasable. Third, grow branches that get thinner as they reach outward. Fourth, add leaves or needles in clusters. Finally, deepen lines and add a simple shadow. This sequence works for the drawing of a tree of almost any kind, from oaks to pines. Whether you want a quick drawing of a tree for a school project or a careful drawing of a tree for your sketchbook, the same steps apply: structure first, details later, color last if you want it.",
   image: "/images/perf/v2/guides/step-by-step.webp",
-  imageAlt: "Step-by-step tree drawing panels from trunk outline to finished leaves",
+  imageAlt: "simple tree drawing",
 };
 
 /** Shown with the step-by-step block, right after the learning roadmap. */
@@ -435,7 +435,7 @@ export const guideSectionsRemaining: GuideSection[] = [
     paragraph:
       "Tree drawing is the skill of turning trunks, branches, and leaves into pictures on paper. It teaches you to notice how real trees grow — thick at the base, thinner toward the tips — and to translate that into simple marks anyone can make. For children, it builds hand control, patience, and confidence. For beginners of any age, trees are a perfect subject because you can start with a stick and a cloud shape, then slowly add bark, shadows, and color. Tree drawing is both art practice and nature study: you learn to look carefully, simplify what you see, and enjoy the process as much as the finished picture.",
     image: "/images/perf/v2/guides/what-is-tree-drawing.webp",
-    imageAlt: "Beginner learning what tree drawing is with a simple trunk and canopy sketch",
+    imageAlt: "tree drawing",
   },
   {
     id: "tree-sketch-drawing",
@@ -443,7 +443,7 @@ export const guideSectionsRemaining: GuideSection[] = [
     paragraph:
       "A sketch tree drawing captures the idea of a tree quickly, without worrying about perfect detail. Use loose lines for a tree line drawing that shows the silhouette first, then decide where thicker limbs should sit. Many artists begin with a tree outline drawing — a clean outer shape for the canopy and trunk — before filling in texture. Sketching trains your eye to see gesture: the lean of a trunk, the reach of a branch, the fluffy edge of leaves. Keep your pencil moving, erase freely, and treat each sketch as practice, not a final poster. Over time, your sketches become the foundation for polished drawings.",
     image: "/images/perf/v2/guides/tree-sketch.webp",
-    imageAlt: "Tree sketch drawing showing loose line work and a light tree outline",
+    imageAlt: "drawing of tree",
   },
   {
     id: "pencil-tree-drawing",
@@ -467,7 +467,7 @@ export const guideSectionsRemaining: GuideSection[] = [
     paragraph:
       "Cartoon trees exaggerate shapes so they feel playful and easy to read. Think big round canopies, chunky trunks, and maybe a smiling face or a tiny door for a storybook look. Bold outlines help kids color inside the lines, while simple leaf clouds keep the drawing fast. You can invent patterns — polka-dot leaves, spiral bark, or rainbow fruit — because cartoons celebrate imagination over botanical accuracy. Cartoon style is ideal for comics, classroom posters, and cheerful greeting cards. Once you master a few reusable shapes, you can draw whole cartoon forests in a single afternoon.",
     image: "/images/perf/v2/guides/cartoon-tree.webp",
-    imageAlt: "Cartoon tree drawing with bold outline, round canopy, and cheerful style",
+    imageAlt: "cartoon tree drawing",
   },
   {
     id: "tree-drawing-images-pictures-reference",

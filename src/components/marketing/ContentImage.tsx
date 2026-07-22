@@ -28,6 +28,7 @@ export function ContentImage({
     <Image
       src={src}
       alt={alt}
+      title={alt}
       fill
       priority={priority}
       loading={priority ? undefined : "lazy"}

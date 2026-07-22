@@ -38,7 +38,8 @@ export function Hero() {
           <div className="hero-media overflow-hidden p-3 sm:p-4">
             <Image
               src="/images/perf/v2/hero.webp"
-              alt="Colorful Tree Drawing logo and illustration"
+              alt="easy tree drawing"
+              title="easy tree drawing"
               width={720}
               height={640}
               priority

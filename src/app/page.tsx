@@ -15,16 +15,40 @@ import {
   faqs,
   homepageMeta,
   heroContent,
+  learningRoadmap,
 } from "@/content/homepage";
 import {
   absoluteUrl,
   buildArticleSchema,
   buildBreadcrumbSchema,
   buildFaqSchema,
+  buildImageObjectsSchema,
   buildOrganizationSchema,
   buildWebSiteSchema,
   jsonLdScript,
 } from "@/lib/seo";
+
+const HERO_IMAGE = "/images/perf/v2/hero.webp";
+
+const homepageImages = [
+  { url: HERO_IMAGE, name: "easy tree drawing" },
+  {
+    url: guideSectionStepByStep.image,
+    name: guideSectionStepByStep.imageAlt,
+  },
+  {
+    url: guideSectionWithColor.image,
+    name: guideSectionWithColor.imageAlt,
+  },
+  ...guideSectionsRemaining.map((section) => ({
+    url: section.image,
+    name: section.imageAlt,
+  })),
+  ...learningRoadmap.map((step) => ({
+    url: step.image,
+    name: step.imageAlt,
+  })),
+];
 
 export const metadata: Metadata = {
   title: {
@@ -39,6 +63,24 @@ export const metadata: Metadata = {
     description: homepageMeta.description,
     url: absoluteUrl("/"),
     type: "website",
+    images: [
+      {
+        url: HERO_IMAGE,
+        width: 720,
+        height: 640,
+        alt: "easy tree drawing",
+      },
+      {
+        url: guideSectionStepByStep.image,
+        alt: guideSectionStepByStep.imageAlt,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homepageMeta.title,
+    description: homepageMeta.description,
+    images: [HERO_IMAGE],
   },
 };
 
@@ -52,7 +94,9 @@ export default function HomePage() {
       description: homepageMeta.description,
       path: homepageMeta.canonicalPath,
       sectionHeadings: guideSections.map((s) => s.heading),
+      images: homepageImages.map((image) => image.url),
     }),
+    ...buildImageObjectsSchema(homepageImages),
     buildFaqSchema(faqs),
     buildBreadcrumbSchema([{ name: "Home", path: "/" }]),
   ];

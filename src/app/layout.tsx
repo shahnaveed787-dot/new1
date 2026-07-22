@@ -48,6 +48,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: PREFERRED_SITE_URL,
+    images: [
+      {
+        url: "/images/perf/v2/hero.webp",
+        width: 720,
+        height: 640,
+        alt: "easy tree drawing",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/images/perf/v2/hero.webp"],
   },
 };
 

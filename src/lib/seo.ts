@@ -55,7 +55,11 @@ export function buildArticleSchema(input: {
   datePublished?: string;
   dateModified?: string;
   sectionHeadings?: string[];
+  /** Absolute or site-relative image paths for Image SEO. */
+  images?: string[];
 }) {
+  const imageUrls = (input.images ?? []).map((src) => absoluteUrl(src));
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -77,11 +81,35 @@ export function buildArticleSchema(input: {
         url: absoluteUrl("/images/perf/v2/logo.webp"),
       },
     },
+    ...(imageUrls.length > 0
+      ? { image: imageUrls.length === 1 ? imageUrls[0] : imageUrls }
+      : {}),
     datePublished: input.datePublished ?? "2026-07-18",
     dateModified: input.dateModified ?? "2026-07-18",
     articleSection: input.sectionHeadings,
     inLanguage: "en",
   };
+}
+
+/** ImageObject entries so crawlers can associate captions/alt with image URLs. */
+export function buildImageObjectsSchema(
+  images: { url: string; name: string; description?: string }[],
+) {
+  return images.map((image) => ({
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    contentUrl: absoluteUrl(image.url),
+    url: absoluteUrl(image.url),
+    name: image.name,
+    description: image.description ?? image.name,
+    license: absoluteUrl("/"),
+    acquireLicensePage: absoluteUrl("/"),
+    creditText: "TreeDraw",
+    creator: {
+      "@type": "Organization",
+      name: "TreeDraw",
+    },
+  }));
 }
 
 export function buildFaqSchema(faqs: FaqItem[]) {
