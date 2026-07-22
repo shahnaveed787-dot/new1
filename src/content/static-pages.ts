@@ -28,9 +28,8 @@ export const importantPages = [
 export const aboutPage: StaticPage = {
   slug: "about",
   title: "About Us",
-  metaTitle: "About TreeDraw | Easy & Simple Tree Drawing Lessons",
-  metaDescription:
-    "Learn about TreeDraw, a friendly educational platform for easy and simple tree drawing. Lessons for kids, parents, teachers, and beginners who want clear steps.",
+  metaTitle: "About Us",
+  metaDescription: "we offer all kind of drawings",
   intro:
     "TreeDraw is a colorful learning home for anyone who wants to draw trees with confidence. We build clear, step-by-step lessons that feel like a product kids and adults can grow with — not a cluttered blog feed.",
   updatedLabel: "Updated July 18, 2026",
