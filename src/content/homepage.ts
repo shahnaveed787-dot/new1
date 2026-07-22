@@ -6,7 +6,7 @@
 export const siteConfig = {
   name: "TreeDraw",
   tagline: "Learn to draw trees, one friendly step at a time",
-  url: "https://treedrawing.us",
+  url: "https://www.treedrawing.us",
   locale: "en",
 } as const;
 
