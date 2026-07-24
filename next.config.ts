@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   compress: true,
   trailingSlash: true,
+  experimental: {
+    optimizePackageImports: ["fuse.js"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [60, 70, 72, 75, 80],

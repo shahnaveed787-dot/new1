@@ -1,24 +1,11 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import { Logo } from "@/components/layout/Logo";
+import { DeferredSearchBar } from "@/components/layout/DeferredSearchBar";
 import { navLinks } from "@/content/homepage";
-
-const SearchBar = dynamic(
-  () =>
-    import("@/components/layout/SearchBar").then((mod) => mod.SearchBar),
-  {
-    loading: () => (
-      <div
-        className="h-12 w-full max-w-xl animate-pulse rounded-pill bg-white/80"
-        aria-hidden="true"
-      />
-    ),
-  },
-);
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 border-b border-green/20 bg-cream/95 supports-[backdrop-filter]:bg-cream/90 supports-[backdrop-filter]:backdrop-blur-sm">
+    <header className="sticky top-0 z-40 border-b border-green/20 bg-cream/95">
       <div className="mx-auto max-w-6xl px-4 pt-2 sm:px-6 sm:pt-3">
         <div className="flex items-center justify-between gap-3">
           <Logo />
@@ -57,7 +44,7 @@ export function Header() {
         <div className="border-b border-green" aria-hidden="true" />
 
         <div className="py-2.5 sm:py-3">
-          <SearchBar />
+          <DeferredSearchBar />
         </div>
       </div>
     </header>

@@ -14,7 +14,7 @@ export function LearningRoadmap() {
             Beginner Learning Path
           </p>
           <h2 id="learning-path-title" className="font-display text-3xl text-ink md:text-4xl">
-            Your step-by-step tree drawing roadmap
+            Tree Drawing Step by Step
           </h2>
           <p className="mt-3 text-lg text-ink-muted">
             Practice each stage in order. Images show exactly what you draw at

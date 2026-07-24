@@ -22,7 +22,8 @@ const nunito = Nunito({
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "700"],
-  preload: true,
+  // Avoid competing with display font on the critical path (helps TBT)
+  preload: false,
   adjustFontFallback: true,
 });
 
