@@ -24,6 +24,7 @@ export const PUBLISHED_PAGE_SLUGS = [
   "privacy-policy",
   "disclaimer",
   "terms-and-conditions",
+  "drawing-tutorials",
 ] as const;
 
 export function isPublishedPageSlug(slug: string): boolean {

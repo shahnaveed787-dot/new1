@@ -45,8 +45,22 @@ export function buildPageMetadata({
     description,
     alternates: { canonical },
     robots: noIndex
-      ? { index: false, follow: false }
-      : { index: true, follow: true },
+      ? {
+          index: false,
+          follow: false,
+          googleBot: { index: false, follow: false },
+        }
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+            "max-video-preview": -1,
+          },
+        },
     openGraph: {
       title,
       description,

@@ -286,3 +286,66 @@
     display: none !important;
   }
 }
+
+/* Christmas tree fairy lights — opacity only (compositor-friendly, no JS) */
+.xmas-lights {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.xmas-tree-media {
+  /* Keep lights aligned to the rendered image box */
+  container-type: inline-size;
+}
+
+.xmas-light {
+  position: absolute;
+  width: clamp(8px, 2.2cqi, 16px);
+  height: clamp(8px, 2.2cqi, 16px);
+  margin: 0;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #ffe566 38%,
+    rgb(255 196 40 / 0.75) 62%,
+    transparent 72%
+  );
+  opacity: 0.2;
+  transform: scale(0.75);
+  will-change: opacity, transform;
+}
+
+.xmas-light--sm {
+  width: clamp(6px, 1.6cqi, 12px);
+  height: clamp(6px, 1.6cqi, 12px);
+}
+
+@keyframes xmas-twinkle {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.7);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.35);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .xmas-light {
+    animation: xmas-twinkle 1.6s ease-in-out infinite;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .xmas-light {
+    animation: none !important;
+    opacity: 0.65;
+    transform: none;
+  }
+}

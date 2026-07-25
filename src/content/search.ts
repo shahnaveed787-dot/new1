@@ -1,5 +1,8 @@
 /** Search only returns pages that are actually published. */
 
+import { tutorials } from "@/content/tutorials";
+import { permalink } from "@/lib/permalinks";
+
 export type SearchEntry = {
   id: string;
   title: string;
@@ -20,8 +23,18 @@ export const searchDataset: SearchEntry[] = [
     id: "drawing-tutorials",
     title: "Drawing Tutorials",
     category: "Explore",
-    keywords: ["tutorials", "lessons", "guide", "step", "draw"],
-    href: "/#tree-drawing-guide",
+    keywords: [
+      "tutorials",
+      "lessons",
+      "guide",
+      "step",
+      "draw",
+      "christmas",
+      "palm",
+      "oak",
+      "pine",
+    ],
+    href: "/drawing-tutorials/",
   },
   {
     id: "about",
@@ -65,4 +78,17 @@ export const searchDataset: SearchEntry[] = [
     keywords: ["terms", "conditions", "legal"],
     href: "/terms-and-conditions/",
   },
+  ...tutorials.map((tutorial) => ({
+    id: tutorial.slug,
+    title: tutorial.title,
+    category: "Drawing Tutorials",
+    keywords: [
+      tutorial.slug.replace(/-/g, " "),
+      tutorial.title.toLowerCase(),
+      tutorial.difficulty.toLowerCase(),
+      "tree drawing",
+      "tutorial",
+    ],
+    href: permalink(tutorial.slug),
+  })),
 ];

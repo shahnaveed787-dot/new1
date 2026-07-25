@@ -588,7 +588,7 @@ export const faqs: FaqItem[] = [
 
 export const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Drawing Tutorials", href: "/#tree-drawing-guide" },
+  { label: "Drawing Tutorials", href: "/drawing-tutorials/" },
   { label: "About", href: "/about/" },
   { label: "FAQ", href: "/#faqs" },
   { label: "Contact", href: "/contact/" },
