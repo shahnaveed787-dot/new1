@@ -1,7 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { ChristmasTreeIllustration } from "@/components/marketing/ChristmasTreeIllustration";
-import type { TutorialPage } from "@/content/tutorials";
+import type {
+  TutorialPage,
+  TutorialParagraphLink,
+} from "@/content/tutorials";
 import { tutorials } from "@/content/tutorials";
 import {
   absoluteUrl,
@@ -14,6 +18,45 @@ import { permalink } from "@/lib/permalinks";
 type Props = {
   page: TutorialPage;
 };
+
+function renderParagraphWithLinks(
+  paragraph: string,
+  paragraphIndex: number,
+  links: TutorialParagraphLink[] | undefined,
+): ReactNode {
+  const applicable = links?.filter(
+    (link) => link.paragraphIndex === paragraphIndex,
+  );
+  if (!applicable?.length) return paragraph;
+
+  let nodes: ReactNode[] = [paragraph];
+
+  for (const link of applicable) {
+    const next: ReactNode[] = [];
+    for (const node of nodes) {
+      if (typeof node !== "string" || !node.includes(link.text)) {
+        next.push(node);
+        continue;
+      }
+      const [before, ...rest] = node.split(link.text);
+      const after = rest.join(link.text);
+      next.push(before);
+      next.push(
+        <Link
+          key={`${link.href}-${link.text}-${paragraphIndex}`}
+          href={link.href}
+          className="font-bold text-green-dark underline decoration-sky underline-offset-2 hover:text-green"
+        >
+          {link.text}
+        </Link>,
+      );
+      if (after) next.push(after);
+    }
+    nodes = next;
+  }
+
+  return nodes;
+}
 
 export function TutorialContentPage({ page }: Props) {
   const path = permalink(page.slug);
@@ -132,12 +175,16 @@ export function TutorialContentPage({ page }: Props) {
                 >
                   {section.heading}
                 </h2>
-                {section.paragraphs.map((paragraph) => (
+                {section.paragraphs.map((paragraph, paragraphIndex) => (
                   <p
                     key={paragraph.slice(0, 48)}
                     className="mt-3 text-lg leading-relaxed text-ink-muted"
                   >
-                    {paragraph}
+                    {renderParagraphWithLinks(
+                      paragraph,
+                      paragraphIndex,
+                      section.links,
+                    )}
                   </p>
                 ))}
               </section>

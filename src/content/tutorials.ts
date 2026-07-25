@@ -2,9 +2,18 @@
  * Drawing tutorial pages — post-name permalinks under /%slug%/.
  */
 
+export type TutorialParagraphLink = {
+  /** Exact phrase to wrap as a link (first match in the target paragraph). */
+  text: string;
+  href: string;
+  /** Paragraph index within the section (0-based). */
+  paragraphIndex: number;
+};
+
 export type TutorialSection = {
   heading: string;
   paragraphs: string[];
+  links?: TutorialParagraphLink[];
 };
 
 export type TutorialPage = {
@@ -44,6 +53,7 @@ export const tutorials: TutorialPage[] = [
           "Christmas tree drawing starts with learning a simple structure rather than focusing on decorations straight away. Begin by sketching a light vertical guideline to keep the tree balanced, then stack three or four triangular layers that gradually widen toward the bottom. This creates the classic evergreen silhouette seen in most festive illustrations. Once the outline is complete, add a short trunk and refine the branch edges with soft zigzag strokes to give the tree a more natural appearance.",
           "As you become more comfortable with tree drawing christmas, experiment with different branch shapes, tree heights, and trunk widths instead of aiming for perfection on your first attempt. A clean foundation makes it much easier to decorate your artwork with ornaments, lights, presents, or seasonal backgrounds later in the drawing process.",
         ],
+        links: [{ text: "tree drawing", href: "/", paragraphIndex: 1 }],
       },
       {
         heading: "Cute Christmas Tree Drawing",
