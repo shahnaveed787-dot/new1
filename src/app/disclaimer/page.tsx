@@ -7,6 +7,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: disclaimerPage.metaTitle,
   description: disclaimerPage.metaDescription,
   path: `/${disclaimerPage.slug}/`,
+  noIndex: true,
 });
 
 export default function DisclaimerPage() {

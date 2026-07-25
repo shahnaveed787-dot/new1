@@ -13,6 +13,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: contactPage.metaTitle,
   description: contactPage.metaDescription,
   path: `/${contactPage.slug}/`,
+  noIndex: false,
 });
 
 export default function ContactPage() {

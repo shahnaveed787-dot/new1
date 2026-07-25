@@ -38,12 +38,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.9,
     },
-    ...importantPages.map((page) => ({
-      url: absoluteUrl(permalink(page.href)),
-      lastModified: today,
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
+    ...importantPages
+      .filter((page) => page.href === "/about/" || page.href === "/contact/")
+      .map((page) => ({
+        url: absoluteUrl(permalink(page.href)),
+        lastModified: today,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+      })),
     ...tutorials.map((tutorial) => ({
       url: absoluteUrl(permalink(tutorial.slug)),
       lastModified: today,

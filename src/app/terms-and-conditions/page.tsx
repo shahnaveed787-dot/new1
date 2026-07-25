@@ -7,6 +7,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: termsPage.metaTitle,
   description: termsPage.metaDescription,
   path: `/${termsPage.slug}/`,
+  noIndex: true,
 });
 
 export default function TermsAndConditionsPage() {

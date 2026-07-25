@@ -7,6 +7,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: privacyPolicyPage.metaTitle,
   description: privacyPolicyPage.metaDescription,
   path: `/${privacyPolicyPage.slug}/`,
+  noIndex: true,
 });
 
 export default function PrivacyPolicyPage() {

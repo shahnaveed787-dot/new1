@@ -7,6 +7,7 @@ export const metadata: Metadata = buildPageMetadata({
   title: aboutPage.metaTitle,
   description: aboutPage.metaDescription,
   path: `/${aboutPage.slug}/`,
+  noIndex: false,
 });
 
 export default function AboutPage() {
