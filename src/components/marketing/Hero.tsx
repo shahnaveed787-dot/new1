@@ -17,7 +17,17 @@ export function Hero() {
             {heroContent.h1}
           </h1>
           <p className="mt-5 max-w-xl text-lg text-ink-muted md:text-xl">
-            {heroContent.intro}
+            {heroContent.intro.includes(heroContent.introStrong) ? (
+              <>
+                {heroContent.intro.split(heroContent.introStrong)[0]}
+                <strong className="font-bold text-ink">
+                  {heroContent.introStrong}
+                </strong>
+                {heroContent.intro.split(heroContent.introStrong)[1]}
+              </>
+            ) : (
+              heroContent.intro
+            )}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link

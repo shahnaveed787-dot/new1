@@ -21,8 +21,9 @@ export const homepageMeta = {
 export const heroContent = {
   h1: "Easy and Simple Tree Drawing",
   subheading: "For kids ages 5–15, parents, teachers, and hobby artists",
+  introStrong: "Drawing Of Tree",
   intro:
-    "Welcome to TreeDraw — a friendly place to learn easy and simple drawing tree at your own pace. Whether you are picking up a pencil for the first time or helping a child discover art, our lessons keep drawing tree simple, clear, and fun. Start with basic shapes, grow your skills branch by branch, and finish with trees you will be proud to show. No fancy tools required — just curiosity, a pencil, and a little practice each day.",
+    "Welcome to Drawing Of Tree — a friendly place to learn easy and simple drawing tree at your own pace. Whether you are picking up a pencil for the first time or helping a child discover art, our lessons keep drawing tree simple, clear, and fun. Start with basic shapes, grow your skills branch by branch, and finish with trees you will be proud to show. No fancy tools required — just curiosity, a pencil, and a little practice each day.",
   primaryCta: {
     label: "Explore Drawing Tutorials",
     href: "/#tree-drawing-guide",
