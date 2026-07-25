@@ -465,7 +465,7 @@ export const guideSectionsRemaining: GuideSection[] = [
     id: "cartoon-tree-drawing",
     heading: "Cartoon Tree Drawing",
     paragraph:
-      "Cartoon trees exaggerate shapes so they feel playful and easy to read. Think big round canopies, chunky trunks, and maybe a smiling face or a tiny door for a storybook look. Bold outlines help kids color inside the lines, while simple leaf clouds keep the drawing fast. You can invent patterns — polka-dot leaves, spiral bark, or rainbow fruit — because cartoons celebrate imagination over botanical accuracy. Cartoon style is ideal for comics, classroom posters, and cheerful greeting cards. Once you master a few reusable shapes, you can draw whole cartoon forests in a single afternoon.",
+      "Tree cartoon drawing exaggerates shapes so they feel playful and easy to read. Think big round canopies, chunky trunks, and maybe a smiling face or a tiny door for a storybook look. Bold outlines help kids color inside the lines, while simple leaf clouds keep the drawing fast. You can invent patterns — polka-dot leaves, spiral bark, or rainbow fruit — because cartoons celebrate imagination over botanical accuracy. Cartoon style is ideal for comics, classroom posters, and cheerful greeting cards. Once you master a few reusable shapes, you can draw whole cartoon forests in a single afternoon.",
     image: "/images/perf/v2/guides/cartoon-tree.webp",
     imageAlt: "cartoon tree drawing",
   },
