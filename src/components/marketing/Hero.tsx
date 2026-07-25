@@ -1,6 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { heroContent } from "@/content/homepage";
+
+function highlightPhrases(text: string, phrases: readonly string[]): ReactNode {
+  type Part = { text: string; bold: boolean };
+  let parts: Part[] = [{ text, bold: false }];
+
+  for (const phrase of phrases) {
+    const next: Part[] = [];
+    for (const part of parts) {
+      if (part.bold || !part.text.includes(phrase)) {
+        next.push(part);
+        continue;
+      }
+      const chunks = part.text.split(phrase);
+      chunks.forEach((chunk, index) => {
+        if (chunk) next.push({ text: chunk, bold: false });
+        if (index < chunks.length - 1) {
+          next.push({ text: phrase, bold: true });
+        }
+      });
+    }
+    parts = next;
+  }
+
+  return parts.map((part, index) =>
+    part.bold ? (
+      <strong key={`${part.text}-${index}`} className="font-bold text-ink">
+        {part.text}
+      </strong>
+    ) : (
+      <span key={`${part.text}-${index}`}>{part.text}</span>
+    ),
+  );
+}
 
 export function Hero() {
   return (
@@ -17,17 +51,7 @@ export function Hero() {
             {heroContent.h1}
           </h1>
           <p className="mt-5 max-w-xl text-lg text-ink-muted md:text-xl">
-            {heroContent.intro.includes(heroContent.introStrong) ? (
-              <>
-                {heroContent.intro.split(heroContent.introStrong)[0]}
-                <strong className="font-bold text-ink">
-                  {heroContent.introStrong}
-                </strong>
-                {heroContent.intro.split(heroContent.introStrong)[1]}
-              </>
-            ) : (
-              heroContent.intro
-            )}
+            {highlightPhrases(heroContent.intro, heroContent.introHighlights)}
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Link
