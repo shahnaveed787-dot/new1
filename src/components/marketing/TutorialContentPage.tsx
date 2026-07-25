@@ -280,6 +280,18 @@ export function TutorialContentPage({ page }: Props) {
                     )}
                   </p>
                 ))}
+                {section.image ? (
+                  <div className="hero-media relative mt-6 aspect-[819/1024] w-full overflow-hidden bg-cream">
+                    <Image
+                      src={section.image}
+                      alt={section.imageAlt ?? section.heading}
+                      title={section.imageAlt ?? section.heading}
+                      fill
+                      className="object-contain"
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 92vw, 768px"
+                    />
+                  </div>
+                ) : null}
               </section>
             ))}
           </div>

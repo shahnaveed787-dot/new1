@@ -14,6 +14,9 @@ export type TutorialSection = {
   heading: string;
   paragraphs: string[];
   links?: TutorialParagraphLink[];
+  /** Optional illustration shown after the section paragraphs */
+  image?: string;
+  imageAlt?: string;
 };
 
 export type TutorialPage = {
@@ -81,6 +84,8 @@ export const tutorials: TutorialPage[] = [
           "As you become more comfortable with tree drawing christmas, experiment with different branch shapes, tree heights, and trunk widths instead of aiming for perfection on your first attempt. A clean foundation makes it much easier to decorate your artwork with ornaments, lights, presents, or seasonal backgrounds later in the drawing process.",
         ],
         links: [{ text: "tree drawing", href: "/", paragraphIndex: 1 }],
+        image: "/images/tutorials/simple-christmas-tree-drawing.webp",
+        imageAlt: "simple christmas tree drawing",
       },
       {
         heading: "Cute Christmas Tree Drawing",
