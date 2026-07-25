@@ -476,8 +476,9 @@ export const guideSectionsRemaining: GuideSection[] = [
   {
     id: "tree-drawing-images-pictures-reference",
     heading: "Tree Drawing Images, Pictures & Reference",
+    paragraphStrong: "cool tree drawing",
     paragraph:
-      "Good drawing tree images help you see forms you might miss from memory alone. Collect tree pictures drawing references from parks, walks, or safe public photo libraries, and notice trunk thickness, canopy width, and how branches fork. A clear drawing tree reference shows lighting direction so your shadows stay consistent. Studying cool drawing tree examples from other artists can inspire style choices, but always sketch from real structure too so your work stays original. Keep a small reference folder for seasons and species. When you draw, glance at the reference, then look back at your page — train your memory, not just your tracing hand.",
+      "Good drawing tree images help you see forms you might miss from memory alone. Collect tree pictures drawing references from parks, walks, or safe public photo libraries, and notice trunk thickness, canopy width, and how branches fork. A clear drawing tree reference shows lighting direction so your shadows stay consistent. Studying cool tree drawing examples from other artists can inspire style choices, but always sketch from real structure too so your work stays original. Keep a small reference folder for seasons and species. When you draw, glance at the reference, then look back at your page — train your memory, not just your tracing hand.",
     image: "/images/perf/v2/guides/reference.webp",
     imageAlt: "Tree drawing reference images and picture studies used for practice",
   },

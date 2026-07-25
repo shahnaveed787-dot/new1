@@ -35,12 +35,21 @@ export function GuideSections({
                   </h2>
                   <p className="mt-4 text-lg leading-relaxed text-ink-muted">
                     {section.paragraphStrong &&
-                    section.paragraph.startsWith(section.paragraphStrong) ? (
+                    section.paragraph.includes(section.paragraphStrong) ? (
                       <>
+                        {
+                          section.paragraph.split(
+                            section.paragraphStrong,
+                          )[0]
+                        }
                         <strong className="font-bold text-ink">
                           {section.paragraphStrong}
                         </strong>
-                        {section.paragraph.slice(section.paragraphStrong.length)}
+                        {
+                          section.paragraph.split(
+                            section.paragraphStrong,
+                          )[1]
+                        }
                       </>
                     ) : (
                       section.paragraph
