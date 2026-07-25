@@ -443,8 +443,9 @@ export const guideSectionsRemaining: GuideSection[] = [
   {
     id: "tree-sketch-drawing",
     heading: "Tree Sketch Drawing",
+    paragraphStrong: "Easy sketch tree drawing",
     paragraph:
-      "A sketch tree drawing captures the idea of a tree quickly, without worrying about perfect detail. Use loose lines for a tree line drawing that shows the silhouette first, then decide where thicker limbs should sit. Many artists begin with a tree outline drawing — a clean outer shape for the canopy and trunk — before filling in texture. Sketching trains your eye to see gesture: the lean of a trunk, the reach of a branch, the fluffy edge of leaves. Keep your pencil moving, erase freely, and treat each sketch as practice, not a final poster. Over time, your sketches become the foundation for polished drawings.",
+      "Easy sketch tree drawing captures the idea of a tree quickly, without worrying about perfect detail. Use loose lines for a tree line drawing that shows the silhouette first, then decide where thicker limbs should sit. Many artists begin with a tree outline drawing — a clean outer shape for the canopy and trunk — before filling in texture. Sketching trains your eye to see gesture: the lean of a trunk, the reach of a branch, the fluffy edge of leaves. Keep your pencil moving, erase freely, and treat each sketch as practice, not a final poster. Over time, your sketches become the foundation for polished drawings.",
     image: "/images/perf/v2/guides/tree-sketch.webp",
     imageAlt: "drawing of tree",
   },
