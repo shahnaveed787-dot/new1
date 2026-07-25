@@ -19,43 +19,133 @@ type Props = {
   page: TutorialPage;
 };
 
-function renderParagraphWithLinks(
+type TextLink = {
+  text: string;
+  href: string;
+};
+
+function findBoldRanges(
+  text: string,
+  phrases: readonly string[],
+): Array<{ start: number; end: number }> {
+  if (!phrases.length || !text) return [];
+
+  const lower = text.toLowerCase();
+  const taken = new Array<boolean>(text.length).fill(false);
+  const ranges: Array<{ start: number; end: number }> = [];
+  const sorted = [...phrases].sort((a, b) => b.length - a.length);
+
+  for (const phrase of sorted) {
+    const needle = phrase.toLowerCase();
+    if (!needle) continue;
+
+    let from = 0;
+    while (from <= lower.length - needle.length) {
+      const idx = lower.indexOf(needle, from);
+      if (idx === -1) break;
+
+      let overlaps = false;
+      for (let i = idx; i < idx + needle.length; i += 1) {
+        if (taken[i]) {
+          overlaps = true;
+          break;
+        }
+      }
+
+      if (!overlaps) {
+        for (let i = idx; i < idx + needle.length; i += 1) {
+          taken[i] = true;
+        }
+        ranges.push({ start: idx, end: idx + needle.length });
+      }
+
+      from = idx + 1;
+    }
+  }
+
+  return ranges.sort((a, b) => a.start - b.start);
+}
+
+function renderWithLink(
+  text: string,
+  link: TextLink | undefined,
+  keyPrefix: string,
+): ReactNode {
+  if (!link || !text.includes(link.text)) return text;
+
+  const idx = text.indexOf(link.text);
+  const before = text.slice(0, idx);
+  const after = text.slice(idx + link.text.length);
+
+  return (
+    <>
+      {before}
+      <Link
+        key={`${keyPrefix}-link`}
+        href={link.href}
+        className="font-bold text-green-dark underline decoration-sky underline-offset-2 hover:text-green"
+      >
+        {link.text}
+      </Link>
+      {after}
+    </>
+  );
+}
+
+function enrichTutorialText(
+  text: string,
+  boldPhrases: readonly string[] | undefined,
+  link?: TextLink,
+): ReactNode {
+  const ranges = findBoldRanges(text, boldPhrases ?? []);
+  if (!ranges.length) {
+    return renderWithLink(text, link, "plain");
+  }
+
+  const parts: ReactNode[] = [];
+  let cursor = 0;
+
+  ranges.forEach((range, index) => {
+    if (cursor < range.start) {
+      parts.push(
+        <span key={`t-${index}-before`}>
+          {renderWithLink(text.slice(cursor, range.start), link, `t-${index}`)}
+        </span>,
+      );
+    }
+
+    const boldText = text.slice(range.start, range.end);
+    parts.push(
+      <strong key={`b-${index}`} className="font-bold text-ink">
+        {renderWithLink(boldText, link, `b-${index}`)}
+      </strong>,
+    );
+    cursor = range.end;
+  });
+
+  if (cursor < text.length) {
+    parts.push(
+      <span key="t-tail">
+        {renderWithLink(text.slice(cursor), link, "tail")}
+      </span>,
+    );
+  }
+
+  return parts;
+}
+
+function enrichParagraph(
   paragraph: string,
   paragraphIndex: number,
   links: TutorialParagraphLink[] | undefined,
+  boldPhrases: readonly string[] | undefined,
 ): ReactNode {
-  const applicable = links?.filter(
-    (link) => link.paragraphIndex === paragraphIndex,
+  const link = links?.find((item) => item.paragraphIndex === paragraphIndex);
+  return enrichTutorialText(
+    paragraph,
+    boldPhrases,
+    link ? { text: link.text, href: link.href } : undefined,
   );
-  if (!applicable?.length) return paragraph;
-
-  let nodes: ReactNode[] = [paragraph];
-
-  for (const link of applicable) {
-    const next: ReactNode[] = [];
-    for (const node of nodes) {
-      if (typeof node !== "string" || !node.includes(link.text)) {
-        next.push(node);
-        continue;
-      }
-      const [before, ...rest] = node.split(link.text);
-      const after = rest.join(link.text);
-      next.push(before);
-      next.push(
-        <Link
-          key={`${link.href}-${link.text}-${paragraphIndex}`}
-          href={link.href}
-          className="font-bold text-green-dark underline decoration-sky underline-offset-2 hover:text-green"
-        >
-          {link.text}
-        </Link>,
-      );
-      if (after) next.push(after);
-    }
-    nodes = next;
-  }
-
-  return nodes;
 }
 
 export function TutorialContentPage({ page }: Props) {
@@ -139,7 +229,7 @@ export function TutorialContentPage({ page }: Props) {
           </p>
 
           <h1 className="mt-6 font-display text-4xl text-ink md:text-5xl">
-            {page.title}
+            {enrichTutorialText(page.title, page.boldPhrases)}
           </h1>
           {page.slug === "christmas-tree-drawing" ? (
             <ChristmasTreeIllustration
@@ -160,7 +250,9 @@ export function TutorialContentPage({ page }: Props) {
             </div>
           )}
           {page.intro ? (
-            <p className="mt-5 text-lg text-ink-muted md:text-xl">{page.intro}</p>
+            <p className="mt-5 text-lg text-ink-muted md:text-xl">
+              {enrichTutorialText(page.intro, page.boldPhrases)}
+            </p>
           ) : null}
 
           <div className="mt-10 space-y-10">
@@ -173,17 +265,18 @@ export function TutorialContentPage({ page }: Props) {
                   id={`h-${section.heading}`}
                   className="font-display text-2xl text-ink md:text-3xl"
                 >
-                  {section.heading}
+                  {enrichTutorialText(section.heading, page.boldPhrases)}
                 </h2>
                 {section.paragraphs.map((paragraph, paragraphIndex) => (
                   <p
                     key={paragraph.slice(0, 48)}
                     className="mt-3 text-lg leading-relaxed text-ink-muted"
                   >
-                    {renderParagraphWithLinks(
+                    {enrichParagraph(
                       paragraph,
                       paragraphIndex,
                       section.links,
+                      page.boldPhrases,
                     )}
                   </p>
                 ))}

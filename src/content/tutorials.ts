@@ -29,8 +29,34 @@ export type TutorialPage = {
   image: string;
   imageAlt: string;
   updatedLabel: string;
+  /** Case-insensitive phrases to bold when found in title/headings/body */
+  boldPhrases?: readonly string[];
   sections: TutorialSection[];
 };
+
+/** Target keywords for the Christmas tree drawing lesson */
+export const CHRISTMAS_TREE_BOLD_PHRASES = [
+  "christmas tree drawing with gifts",
+  "christmas tree with lights drawing",
+  "easy drawing of a christmas tree",
+  "grinch christmas tree drawing",
+  "cartoon christmas tree drawing",
+  "christmas tree cartoon drawing",
+  "christmas tree picture drawing",
+  "outline christmas tree drawing",
+  "simple christmas tree drawing",
+  "easy christmas tree drawing",
+  "cute christmas tree drawing",
+  "christmas tree easy drawing",
+  "christmas tree drawing ideas",
+  "christmas tree line drawing",
+  "drawing of a christmas tree",
+  "drawing a christmas tree",
+  "tree drawing christmas",
+  "cristmas tree drawing",
+  "grinch tree drawing",
+  "christmas tree drawing",
+] as const;
 
 export const tutorials: TutorialPage[] = [
   {
@@ -46,6 +72,7 @@ export const tutorials: TutorialPage[] = [
     image: "/images/tutorials/christmas-tree.webp",
     imageAlt: "christmas tree drawing",
     updatedLabel: "Updated July 25, 2026",
+    boldPhrases: CHRISTMAS_TREE_BOLD_PHRASES,
     sections: [
       {
         heading: "Drawing a Christmas Tree",
