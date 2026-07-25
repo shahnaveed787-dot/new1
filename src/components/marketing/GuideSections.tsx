@@ -34,7 +34,17 @@ export function GuideSections({
                     {section.heading}
                   </h2>
                   <p className="mt-4 text-lg leading-relaxed text-ink-muted">
-                    {section.paragraph}
+                    {section.paragraphStrong &&
+                    section.paragraph.startsWith(section.paragraphStrong) ? (
+                      <>
+                        <strong className="font-bold text-ink">
+                          {section.paragraphStrong}
+                        </strong>
+                        {section.paragraph.slice(section.paragraphStrong.length)}
+                      </>
+                    ) : (
+                      section.paragraph
+                    )}
                   </p>
                 </div>
                 <div
