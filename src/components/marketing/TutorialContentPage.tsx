@@ -3,8 +3,10 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { ChristmasTreeIllustration } from "@/components/marketing/ChristmasTreeIllustration";
 import type {
+  TutorialList,
   TutorialPage,
   TutorialParagraphLink,
+  TutorialSection,
 } from "@/content/tutorials";
 import { tutorials } from "@/content/tutorials";
 import {
@@ -22,6 +24,7 @@ type Props = {
 type TextLink = {
   text: string;
   href: string;
+  match?: "first" | "last";
 };
 
 function findBoldRanges(
@@ -66,28 +69,50 @@ function findBoldRanges(
   return ranges.sort((a, b) => a.start - b.start);
 }
 
-function renderWithLink(
+function getLinkRange(
   text: string,
   link: TextLink | undefined,
+): { start: number; end: number; href: string; label: string } | null {
+  if (!link?.text) return null;
+  const idx =
+    link.match === "last"
+      ? text.lastIndexOf(link.text)
+      : text.indexOf(link.text);
+  if (idx === -1) return null;
+  return {
+    start: idx,
+    end: idx + link.text.length,
+    href: link.href,
+    label: link.text,
+  };
+}
+
+function renderTextSlice(
+  fullText: string,
+  start: number,
+  end: number,
+  linkRange: ReturnType<typeof getLinkRange>,
   keyPrefix: string,
 ): ReactNode {
-  if (!link || !text.includes(link.text)) return text;
+  const slice = fullText.slice(start, end);
+  if (!linkRange || linkRange.end <= start || linkRange.start >= end) {
+    return slice;
+  }
 
-  const idx = text.indexOf(link.text);
-  const before = text.slice(0, idx);
-  const after = text.slice(idx + link.text.length);
+  const localStart = Math.max(linkRange.start, start) - start;
+  const localEnd = Math.min(linkRange.end, end) - start;
 
   return (
     <>
-      {before}
+      {slice.slice(0, localStart)}
       <Link
         key={`${keyPrefix}-link`}
-        href={link.href}
+        href={linkRange.href}
         className="font-bold text-green-dark underline decoration-sky underline-offset-2 hover:text-green"
       >
-        {link.text}
+        {slice.slice(localStart, localEnd)}
       </Link>
-      {after}
+      {slice.slice(localEnd)}
     </>
   );
 }
@@ -98,8 +123,10 @@ function enrichTutorialText(
   link?: TextLink,
 ): ReactNode {
   const ranges = findBoldRanges(text, boldPhrases ?? []);
+  const linkRange = getLinkRange(text, link);
+
   if (!ranges.length) {
-    return renderWithLink(text, link, "plain");
+    return renderTextSlice(text, 0, text.length, linkRange, "plain");
   }
 
   const parts: ReactNode[] = [];
@@ -109,15 +136,20 @@ function enrichTutorialText(
     if (cursor < range.start) {
       parts.push(
         <span key={`t-${index}-before`}>
-          {renderWithLink(text.slice(cursor, range.start), link, `t-${index}`)}
+          {renderTextSlice(
+            text,
+            cursor,
+            range.start,
+            linkRange,
+            `t-${index}`,
+          )}
         </span>,
       );
     }
 
-    const boldText = text.slice(range.start, range.end);
     parts.push(
       <strong key={`b-${index}`} className="font-bold text-ink">
-        {renderWithLink(boldText, link, `b-${index}`)}
+        {renderTextSlice(text, range.start, range.end, linkRange, `b-${index}`)}
       </strong>,
     );
     cursor = range.end;
@@ -126,7 +158,7 @@ function enrichTutorialText(
   if (cursor < text.length) {
     parts.push(
       <span key="t-tail">
-        {renderWithLink(text.slice(cursor), link, "tail")}
+        {renderTextSlice(text, cursor, text.length, linkRange, "tail")}
       </span>,
     );
   }
@@ -146,6 +178,51 @@ function enrichParagraph(
     boldPhrases,
     link ? { text: link.text, href: link.href } : undefined,
   );
+}
+
+function renderSectionList(
+  list: TutorialList,
+  boldPhrases: readonly string[] | undefined,
+): ReactNode {
+  const ListTag = list.type === "number" ? "ol" : "ul";
+  return (
+    <ListTag
+      className={`mt-3 space-y-2 text-lg leading-relaxed text-ink-muted ${
+        list.type === "number" ? "list-decimal pl-6" : "list-disc pl-6"
+      }`}
+    >
+      {list.items.map((item) => (
+        <li key={item.slice(0, 48)}>
+          {enrichTutorialText(item, boldPhrases)}
+        </li>
+      ))}
+    </ListTag>
+  );
+}
+
+function renderSectionBody(
+  section: TutorialSection,
+  boldPhrases: readonly string[] | undefined,
+): ReactNode {
+  return section.paragraphs.map((paragraph, paragraphIndex) => (
+    <div key={paragraph.slice(0, 48)}>
+      <p className="mt-3 text-lg leading-relaxed text-ink-muted">
+        {enrichParagraph(
+          paragraph,
+          paragraphIndex,
+          section.links,
+          boldPhrases,
+        )}
+      </p>
+      {section.lists
+        ?.filter((list) => list.afterParagraph === paragraphIndex)
+        .map((list) => (
+          <div key={`${list.type}-${list.afterParagraph}-${list.items[0]}`}>
+            {renderSectionList(list, boldPhrases)}
+          </div>
+        ))}
+    </div>
+  ));
 }
 
 export function TutorialContentPage({ page }: Props) {
@@ -237,21 +314,34 @@ export function TutorialContentPage({ page }: Props) {
               alt={page.imageAlt}
             />
           ) : (
-            <div className="hero-media relative mt-8 aspect-[16/10] overflow-hidden bg-cream">
+            <div
+              className={`hero-media relative mt-8 w-full overflow-hidden bg-cream ${
+                page.slug === "palm-tree-drawing"
+                  ? "aspect-[819/1024]"
+                  : "aspect-[16/10]"
+              }`}
+            >
               <Image
                 src={page.image}
                 alt={page.imageAlt}
                 title={page.imageAlt}
                 fill
-                className="object-contain p-4"
-                sizes="(max-width: 768px) 100vw, 720px"
+                priority={page.slug === "palm-tree-drawing"}
+                className={`object-contain ${
+                  page.slug === "palm-tree-drawing" ? "" : "p-4"
+                }`}
+                sizes="(max-width: 640px) 100vw, (max-width: 768px) 92vw, 768px"
                 unoptimized={/\.svg$/i.test(page.image)}
               />
             </div>
           )}
           {page.intro ? (
             <p className="mt-5 text-lg text-ink-muted md:text-xl">
-              {enrichTutorialText(page.intro, page.boldPhrases)}
+              {enrichTutorialText(
+                page.intro,
+                page.boldPhrases,
+                page.introLink,
+              )}
             </p>
           ) : null}
 
@@ -267,19 +357,7 @@ export function TutorialContentPage({ page }: Props) {
                 >
                   {enrichTutorialText(section.heading, page.boldPhrases)}
                 </h2>
-                {section.paragraphs.map((paragraph, paragraphIndex) => (
-                  <p
-                    key={paragraph.slice(0, 48)}
-                    className="mt-3 text-lg leading-relaxed text-ink-muted"
-                  >
-                    {enrichParagraph(
-                      paragraph,
-                      paragraphIndex,
-                      section.links,
-                      page.boldPhrases,
-                    )}
-                  </p>
-                ))}
+                {renderSectionBody(section, page.boldPhrases)}
                 {section.image ? (
                   <div className="hero-media relative mt-6 aspect-[819/1024] w-full overflow-hidden bg-cream">
                     <Image

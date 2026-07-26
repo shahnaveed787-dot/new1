@@ -10,9 +10,17 @@ export type TutorialParagraphLink = {
   paragraphIndex: number;
 };
 
+export type TutorialList = {
+  type: "bullet" | "number";
+  items: string[];
+  /** Render after this paragraph index (0-based). */
+  afterParagraph: number;
+};
+
 export type TutorialSection = {
   heading: string;
   paragraphs: string[];
+  lists?: TutorialList[];
   links?: TutorialParagraphLink[];
   /** Optional illustration shown after the section paragraphs */
   image?: string;
@@ -34,6 +42,13 @@ export type TutorialPage = {
   updatedLabel: string;
   /** Case-insensitive phrases to bold when found in title/headings/body */
   boldPhrases?: readonly string[];
+  /** Optional homepage (or other) link inside the intro paragraph */
+  introLink?: {
+    text: string;
+    href: string;
+    /** Which match to wrap when the phrase appears more than once */
+    match?: "first" | "last";
+  };
   sections: TutorialSection[];
 };
 
@@ -59,6 +74,21 @@ export const CHRISTMAS_TREE_BOLD_PHRASES = [
   "cristmas tree drawing",
   "grinch tree drawing",
   "christmas tree drawing",
+] as const;
+
+/** Target keywords for the palm tree drawing lesson */
+export const PALM_TREE_BOLD_PHRASES = [
+  "black and white plam tree",
+  "palm tree drawing realistic",
+  "palm tree outline drawing",
+  "date palm tree drawing",
+  "palm tree leaves drawing",
+  "palm tree drawing easy",
+  "easy palm tree drawing",
+  "palm tree easy drawing",
+  "drawing palm tree",
+  "palm tree drawing",
+  "pom tree drawing",
 ] as const;
 
 export const tutorials: TutorialPage[] = [
@@ -135,37 +165,166 @@ export const tutorials: TutorialPage[] = [
   },
   {
     slug: "palm-tree-drawing",
-    status: "coming-soon",
-    title: "Palm Tree Drawing",
-    metaTitle: "Palm Tree Drawing | Easy Beach Tree Tutorial",
+    status: "ready",
+    title: "Palm Tree Drawing a Complete Guide for Beginners and Artists",
+    metaTitle: "Palm Tree Drawing Easy, Simple & Realistic Sketch Guide 2026",
     metaDescription:
-      "Learn palm tree drawing for beginners — curved trunk, palm fronds, and a simple beach vibe with clear step-by-step shapes.",
+      "Learn palm tree drawing with easy, realistic, outline and date palm tutorials. Follow simple steps to draw palm tree leaves and beautiful sketches.",
     intro:
-      "Palm trees feel tropical and friendly. A curved trunk and long fronds are all you need for a sunny scene.",
+      "Palm tree drawing are among the most recognizable trees in the world. Their tall trunks, graceful leaves, and tropical appearance make them a favourite subject for artists of every skill level. Whether you enjoy sketching with a pencil, colouring with markers, or creating digital artwork, learning how to draw a palm tree is both fun and rewarding. By understanding the basic structure, proportions, and leaf patterns, you can create realistic or simple illustrations that capture the beauty of these iconic tropical trees.",
     difficulty: "Easy",
-    time: "15 min",
-    image: "/images/tutorials/palm-tree.svg",
-    imageAlt: "Palm tree drawing with a curved trunk and long leafy fronds",
-    updatedLabel: "Updated July 25, 2026",
+    time: "20 min",
+    image: "/images/tutorials/palm-tree-drawing.webp",
+    imageAlt: "palm tree drawing",
+    updatedLabel: "Updated July 26, 2026",
+    boldPhrases: PALM_TREE_BOLD_PHRASES,
+    introLink: { text: "trees", href: "/" },
     sections: [
       {
-        heading: "What you will draw",
+        heading: "How to Start a Palm Tree Drawing and Drawing Palm Tree",
         paragraphs: [
-          "A leaning palm trunk with a crown of long fronds — great for beach, island, or travel doodles.",
+          "If you're new to palm tree drawing or simply learning the basics of drawing palm tree illustrations, start by observing the tree's natural structure. Unlike oak or maple trees, palm trees have a single slender trunk topped with a crown of long, feather-like fronds. Breaking the tree into simple geometric shapes makes the process much easier.",
+          "Begin with a light vertical guideline to establish the trunk. Sketch a small oval at the top to represent the crown where the leaves will grow. From this point, draw curved guidelines extending outward like a fan. These lines will later become individual palm fronds. Working with light pencil strokes allows you to adjust proportions before adding details.",
+          "Professional illustrators often recommend using reference photos to understand the natural curve of the trunk and the way fronds overlap. This simple observation greatly improves the overall realism of your artwork.",
         ],
       },
       {
-        heading: "Step-by-step",
+        heading: "Understanding the Structure of a Palm Tree",
         paragraphs: [
-          "Sketch a soft S-curve for the trunk, thicker at the base and thinner near the top. Add light rings or texture lines for bark.",
-          "From the top, draw several long curved fronds that fan outward. Make each frond thicker near the crown and tapered at the tip.",
-          "Add a few overlapping fronds behind the front ones for depth. Finish with a sand dune or water line and a small shadow under the trunk.",
+          "Before adding details, it's important to understand the anatomy of a palm tree. Every healthy palm generally includes:",
+          "Unlike broadleaf trees, palm trees don't have thick branches. Instead, all leaves emerge from the crown at the top. This unique structure makes palm trees much easier to draw than many other tree species.",
+        ],
+        lists: [
+          {
+            type: "bullet",
+            afterParagraph: 0,
+            items: [
+              "A tall cylindrical trunk",
+              "A crownshaft (depending on species)",
+              "Long arching fronds",
+              "Leaflets attached to each frond",
+              "Fibrous bark texture",
+              "Roots hidden beneath the ground",
+            ],
+          },
         ],
       },
       {
-        heading: "Tips",
+        heading:
+          "Creating a Palm Tree Drawing Easy, Easy Palm Tree Drawing and Palm Tree Easy Drawing",
         paragraphs: [
-          "Uneven frond lengths look more natural than a perfect circle of leaves. One strong curve in the trunk gives instant tropical character.",
+          "Many beginners search for palm tree drawing easy, easy palm tree drawing, or palm tree easy drawing because they want a simple method without complicated details. Fortunately, palm trees are ideal for beginners due to their straightforward shape.",
+          "Start by drawing:",
+          "Avoid making every leaf identical. Natural variation gives the tree a more believable appearance. Some leaves may point downward while others spread outward. Small imperfections actually improve the final drawing.",
+          "Once comfortable with the basic version, you can experiment with thicker trunks, additional leaves, coconuts, or beach scenery.",
+        ],
+        lists: [
+          {
+            type: "number",
+            afterParagraph: 1,
+            items: [
+              "A slightly curved trunk.",
+              "A small circle or oval at the top.",
+              "Five to eight long curved lines extending outward.",
+              "Add leaflets along each curved line.",
+              "Finish by drawing a few horizontal texture lines across the trunk.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Adding Details to Palm Tree Leaves Drawing",
+        paragraphs: [
+          "The most eye-catching feature of any palm tree leaves drawing is the graceful fronds. Rather than drawing each leaf as one solid shape, imagine a central stem called the rachis with dozens of narrow leaflets growing from both sides.",
+          "Begin each frond with one sweeping curved line. Then sketch small angled strokes extending from each side toward the tip. Keep the leaflets shorter near the ends and slightly longer near the middle to create a natural appearance.",
+          "Remember that gravity affects the leaves. Older fronds often droop downward while younger leaves remain upright. Overlapping fronds also add depth and dimension to your illustration.",
+          "Using different pencil pressure creates texture. Light strokes suggest younger leaves, while darker lines emphasize shadows between overlapping fronds.",
+        ],
+      },
+      {
+        heading: "Making a Palm Tree Drawing Realistic",
+        paragraphs: [
+          "Once you've mastered the basics, you can move on to a palm tree drawing realistic style. Realism comes from observation rather than excessive detail.",
+          "Pay close attention to:",
+          "Instead of outlining every surface, gradually build values with soft graphite shading. The trunk often appears darker beneath the crown where shadows naturally collect.",
+          "Palm fronds rarely remain perfectly straight. Gentle bends, twists, and uneven leaf spacing make the drawing feel alive. Adding subtle highlights where sunlight strikes the leaves enhances realism even further.",
+          "If you're drawing an entire tropical landscape, include sand dunes, rocks, distant mountains, ocean waves, or a sunset sky to create environmental context.",
+        ],
+        lists: [
+          {
+            type: "bullet",
+            afterParagraph: 1,
+            items: [
+              "Bark texture",
+              "Natural trunk curvature",
+              "Leaf overlap",
+              "Shadow direction",
+              "Lighting",
+              "Perspective",
+              "Depth",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Drawing a Palm Tree Outline Drawing",
+        paragraphs: [
+          "A clean palm tree outline drawing is useful for colouring books, classroom activities, children's worksheets, craft projects, logos, and beginner practice.",
+          "Instead of adding shading, focus entirely on clean outer edges.",
+          "Keep the process simple:",
+          "Outline drawings work particularly well with markers, coloured pencils, digital colouring apps, and Cricut craft projects because they provide a clean template without distracting details.",
+        ],
+        lists: [
+          {
+            type: "bullet",
+            afterParagraph: 2,
+            items: [
+              "Draw one continuous trunk.",
+              "Create a rounded crown.",
+              "Add evenly spaced fronds.",
+              "Outline each frond clearly.",
+              "Remove unnecessary sketch lines.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Creating a Black and White Palm Tree Illustration",
+        paragraphs: [
+          "A black and white palm tree illustration relies entirely on line work, contrast, and shading instead of colour. This style is popular in tattoo designs, colouring pages, architectural sketches, and ink illustrations.",
+          "Begin with confident outlines before adding texture using cross-hatching, stippling, or directional pencil strokes. Dark shadows beneath overlapping fronds create strong contrast and make the leaves stand out.",
+          "Negative space is equally important. Leaving portions of the paper white helps separate individual fronds while giving the drawing a cleaner and more professional appearance.",
+          "Even without colour, careful use of light and shadow can produce an eye-catching tropical illustration.",
+        ],
+        image: "/images/tutorials/palm-tree-drawing-easy.webp",
+        imageAlt: "palm tree drawing easy",
+      },
+      {
+        heading: "How to Draw a Date Palm Tree Drawing",
+        paragraphs: [
+          "A date palm tree drawing often features a thicker trunk with a diamond-shaped bark pattern left behind by old leaf bases.",
+          "When drawing a date palm:",
+          "Date palms are commonly found throughout the Middle East, North Africa, and parts of South Asia. Their fruit clusters create an instantly recognisable appearance and make excellent focal points in botanical illustrations.",
+          "Artists often study real photographs to understand how the fruit hangs beneath the leaves while maintaining natural balance within the composition.",
+        ],
+        lists: [
+          {
+            type: "bullet",
+            afterParagraph: 1,
+            items: [
+              "Make the trunk wider.",
+              "Add textured bark patterns.",
+              "Draw denser fronds.",
+              "Include hanging clusters of dates beneath the crown.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Final Thoughts",
+        paragraphs: [
+          "Palm trees are one of the easiest yet most rewarding subjects for artists of all experience levels. Their distinctive silhouette, flowing leaves, and tropical charm make them perfect for pencil sketches, digital illustrations, colouring pages, botanical studies, and landscape artwork. By understanding the trunk structure, mastering the leaf patterns, and practising realistic shading, you'll steadily improve your drawing skills.",
+          "Whether your goal is a simple beginner-friendly sketch, a clean outline, a detailed botanical illustration, or a realistic tropical landscape, consistent practice and careful observation are the keys to creating beautiful palm tree artwork that looks both natural and visually appealing.",
         ],
       },
     ],
