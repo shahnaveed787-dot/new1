@@ -17,10 +17,24 @@ export type TutorialList = {
   afterParagraph: number;
 };
 
+export type TutorialSubsection = {
+  heading: string;
+  paragraphs: string[];
+  lists?: TutorialList[];
+  image?: string;
+  imageAlt?: string;
+};
+
+export type TutorialFaq = {
+  question: string;
+  answer: string;
+};
+
 export type TutorialSection = {
   heading: string;
   paragraphs: string[];
   lists?: TutorialList[];
+  subsections?: TutorialSubsection[];
   links?: TutorialParagraphLink[];
   /** Optional illustration shown after the section paragraphs */
   image?: string;
@@ -49,6 +63,7 @@ export type TutorialPage = {
     /** Which match to wrap when the phrase appears more than once */
     match?: "first" | "last";
   };
+  faqs?: TutorialFaq[];
   sections: TutorialSection[];
 };
 
@@ -368,38 +383,240 @@ export const tutorials: TutorialPage[] = [
   },
   {
     slug: "willow-tree-drawing",
-    status: "coming-soon",
-    title: "Willow Tree Drawing",
-    metaTitle: "Willow Tree Drawing | Easy Weeping Willow Tutorial",
+    status: "ready",
+    title: "How to Draw a Willow Tree: Easy Weeping Willow Tree Drawing Guide",
+    metaTitle: "Willow Tree Drawing: Step-by-Step Guide for Beginners",
     metaDescription:
-      "Learn willow tree drawing with a weeping canopy, hanging branches, and calm landscape tips for beginners and kids.",
+      "Learn how to create a stunning willow tree drawing with our easy weeping willow tree drawing guide. Step-by-step tutorial, tips and realistic sketch ideas.",
     intro:
-      "Willow trees are known for long hanging branches. Capture that gentle waterfall of leaves with soft vertical strokes.",
+      "A willow tree is one of the most graceful and recognisable trees in the world. With its flowing branches, delicate leaves, and elegant silhouette, it has inspired artists, gardeners, and nature lovers for centuries. Whether you admire the beauty of a weeping willow beside a peaceful lake or want to improve your artistic skills, learning about this tree can help you appreciate both nature and art.\n\nIf you're interested in willow tree drawing, this guide will introduce the characteristics of the tree before walking you through an easy drawing tutorial. By understanding the tree's structure, you'll create a more realistic and balanced illustration while developing your confidence as a beginner artist.",
     difficulty: "Easy",
-    time: "20 min",
-    image: "/images/tutorials/willow-tree.svg",
-    imageAlt: "Willow tree drawing with long weeping branches",
-    updatedLabel: "Updated July 25, 2026",
+    time: "25 min",
+    image: "/images/tutorials/willow-tree-drawing.svg",
+    imageAlt: "willow tree drawing",
+    updatedLabel: "Updated July 29, 2026",
     sections: [
       {
-        heading: "What you will draw",
+        heading: "What Is a Willow Tree?",
         paragraphs: [
-          "A weeping willow with a rounded upper canopy and long cascading branch lines.",
+          "A willow tree belongs to the Salix genus, which contains hundreds of species growing across Europe, Asia, and North America. These deciduous trees thrive near rivers, ponds, wetlands, and other moist environments because they prefer damp soil.",
+          "The most famous species is the weeping willow tree drawing, known for its sweeping branches that gracefully hang toward the ground. Other popular varieties include the white willow, black willow, and crack willow.",
+          "Some common characteristics include:",
+          "This plant is used throughout history for landscaping, traditional medicine, basket weaving and decorative gardens. Their graceful appearance also makes them a favourite subject for botanical illustration and landscape drawing.",
+        ],
+        lists: [
+          {
+            type: "bullet",
+            afterParagraph: 2,
+            items: [
+              "Long, narrow green leaves",
+              "Flexible hanging willow branches",
+              "Strong but slender trunk",
+              "Extensive root system",
+              "Rounded canopy with cascading foliage",
+              "Fast growth in moist conditions",
+            ],
+          },
         ],
       },
       {
-        heading: "Step-by-step",
+        heading: "What Makes this Tree Unique?",
         paragraphs: [
-          "Start with a short trunk and a soft dome shape for the top of the canopy.",
-          "From the dome, draw long curved lines that hang down and slightly outward. Overlap groups of lines so the curtain of leaves feels full.",
-          "Darken a few front strands and keep back strands lighter. Add a pond edge or grass line for a peaceful scene.",
+          "Unlike oak, maple, or pine trees the willow trees have an instantly recognisable shape. Instead of growing upward with stiff branches, their limbs naturally curve downward, creating a flowing curtain of leaves.",
+          "Several features make them unique:",
+          "These natural features provide excellent reference points for creating realistic nature art.",
+        ],
+        subsections: [
+          {
+            heading: "Graceful Branches",
+            paragraphs: [
+              "The most distinctive feature is the curtain-like arrangement of hanging willow branches. Artists often use flowing curved lines to capture this elegant movement.",
+            ],
+          },
+          {
+            heading: "Delicate Leaves",
+            paragraphs: [
+              "Rather than broad leaves, this trees produce long and narrow foliage that gently sways in the wind.",
+            ],
+          },
+          {
+            heading: "Textured Bark",
+            paragraphs: [
+              "Older design of the tree develop deeply textured bark with visible grooves, adding character to tree sketches and pencil drawings.",
+            ],
+          },
+          {
+            heading: "Wide Root System",
+            paragraphs: [
+              "Their roots spread extensively underground, helping stabilise trees growing near rivers and streams.",
+            ],
+          },
+          {
+            heading: "Seasonal Beauty",
+            paragraphs: [
+              "During spring and summer, the canopy appears lush and vibrant. In autumn, many willow species display attractive golden-yellow leaves before shedding them for winter.",
+            ],
+          },
         ],
       },
       {
-        heading: "Tips",
+        heading: "Willow Tree Drawing: Step-by-Step Guide",
         paragraphs: [
-          "Think “hanging curtains,” not stiff sticks. Slight curves and uneven lengths make the willow feel alive.",
+          "Learning willow tree drawing becomes much easier when you break the process into simple stages. Instead of focusing on every leaf, begin with the overall structure before adding finer details.",
         ],
+        subsections: [
+          {
+            heading: "Materials Needed",
+            paragraphs: [
+              "Before starting your drawing tutorial, gather the following supplies:",
+              "These basic tools are suitable for beginners as well as experienced artists.",
+            ],
+            lists: [
+              {
+                type: "bullet",
+                afterParagraph: 0,
+                items: [
+                  "HB pencil",
+                  "2B or 4B pencil for shading",
+                  "Drawing paper",
+                  "Eraser",
+                  "Sharpener",
+                  "Fine liner (optional)",
+                  "Coloured pencils or markers (optional)",
+                ],
+              },
+            ],
+          },
+          {
+            heading: "Step 1: Draw the Basic Tree Structure",
+            paragraphs: [
+              "Start by lightly sketching a slightly curved trunk. Willow trees rarely have perfectly straight trunks, so allow a gentle natural curve.",
+              "Next, draw several large branches extending outward before curving downward. Keep your lines loose instead of rigid.",
+              "Think of the overall canopy as a large umbrella with flowing edges rather than a perfect circle.",
+            ],
+            image: "/images/tutorials/willow-step-1.svg",
+            imageAlt:
+              "Willow tree drawing step 1 — curved trunk and umbrella canopy structure",
+          },
+          {
+            heading: "Step 2: Add Hanging Branches and Leaves",
+            paragraphs: [
+              "Now add dozens of thin branches falling from the larger limbs.",
+              "Instead of drawing individual leaves immediately, sketch groups of hanging foliage using long curved shapes.",
+              "Gradually fill the canopy while leaving small gaps that allow the branches underneath to remain visible. This creates depth and prevents the drawing from looking flat.",
+              "Remember that gravity naturally pulls willow branches downward, so avoid drawing stiff horizontal limbs.",
+            ],
+            image: "/images/tutorials/willow-step-2.svg",
+            imageAlt:
+              "Willow tree drawing step 2 — hanging branches and foliage groups",
+          },
+          {
+            heading: "Step 3: Add Texture and Shading",
+            paragraphs: [
+              "Once the overall structure is complete, begin refining your drawing.",
+              "Use light shading around the trunk and larger branches to create volume.",
+              "Apply darker pencil strokes underneath hanging foliage where shadows naturally form.",
+              "Add subtle bark texture using short vertical lines.",
+              "Finally, sharpen the outer edges of the canopy with small clusters of leaves while keeping the overall appearance soft and flowing.",
+              "Good shading techniques transform a simple sketch into a realistic botanical illustration.",
+            ],
+            image: "/images/tutorials/willow-step-3.svg",
+            imageAlt:
+              "Willow tree drawing step 3 — bark texture, canopy edges, and shading",
+          },
+        ],
+      },
+      {
+        heading: "Common Mistakes to Avoid",
+        paragraphs: [
+          "Many beginners make similar mistakes when drawing tree willow. Being aware of them can greatly improve your final artwork.",
+        ],
+        subsections: [
+          {
+            heading: "Drawing Straight Branches",
+            paragraphs: [
+              "Willow branches naturally droop. Straight branches make the tree resemble an oak rather than a willow.",
+            ],
+          },
+          {
+            heading: "Overdrawing Every Leaf",
+            paragraphs: [
+              "Instead of drawing thousands of individual leaves, work with groups of foliage and add detail only where needed.",
+            ],
+          },
+          {
+            heading: "Ignoring Light and Shadow",
+            paragraphs: [
+              "Proper shading gives the tree depth and realism. Without shadows, even well-shaped trees can appear flat.",
+            ],
+          },
+          {
+            heading: "Making the Canopy Too Symmetrical",
+            paragraphs: [
+              "Nature rarely creates perfectly balanced trees. Introduce slight variations in branch length and foliage placement.",
+            ],
+          },
+          {
+            heading: "Using Heavy Outlines Everywhere",
+            paragraphs: [
+              "Soft edges produce a more natural appearance than thick outlines surrounding every part of the drawing.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Tips to Make Your Drawing More Realistic",
+        paragraphs: [
+          "If you'd like your artwork to stand out, consider these practical techniques:",
+          "Consistent practice is one of the best ways to improve your tree sketching skills.",
+        ],
+        lists: [
+          {
+            type: "bullet",
+            afterParagraph: 0,
+            items: [
+              "Real study the tree reference photos before sketching.",
+              "Observe how branches overlap each other.",
+              "Use curved strokes instead of straight lines.",
+              "Build shading gradually using multiple light layers.",
+              "Keep the outer canopy soft rather than sharply defined.",
+              "Vary branch thickness from trunk to tips.",
+              "Leave small negative spaces between hanging foliage.",
+              "Add grass, water, rocks, or a small path to create a complete landscape drawing.",
+              "Practice quick line art sketches before attempting detailed illustrations.",
+              "Experiment with coloured pencils to capture seasonal changes.",
+            ],
+          },
+        ],
+      },
+      {
+        heading: "Conclusion",
+        paragraphs: [
+          "The willow tree is admired around the world for its graceful form, delicate leaves, and sweeping branches. Its elegant shape makes it one of the most rewarding subjects for artists, whether you're creating a quick tree sketch or a detailed botanical illustration.",
+          "Learning drawing of these tree becomes much easier when you focus on the tree's natural structure before adding texture, shading, and fine details. With regular practice, careful observation, and patience, you'll soon be able to create realistic willow tree artwork that captures the beauty of one of nature's most iconic trees.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: "Is a willow tree difficult to draw?",
+        answer:
+          "Not at all. Because this trees have flowing branches instead of complex geometric shapes, beginners often find them easier than many other tree species.",
+      },
+      {
+        question: "What pencil is best to draw this tree?",
+        answer:
+          "An HB pencil works well for the initial sketch, while 2B or 4B pencils are excellent for adding realistic shading and bark texture.",
+      },
+      {
+        question: "How do I make the leaves look natural?",
+        answer:
+          "Draw clusters of hanging foliage instead of individual leaves. This creates a softer, more realistic appearance.",
+      },
+      {
+        question: "Why are willow trees popular in art?",
+        answer:
+          "Their graceful branches, flowing canopy, and elegant silhouette create beautiful compositions in landscape art, botanical illustration, and pencil drawings.",
       },
     ],
   },

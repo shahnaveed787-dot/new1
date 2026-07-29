@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="560" viewBox="0 0 800 560" role="img" aria-label="Willow tree drawing step 2 hanging branches and leaves">
+  <rect width="800" height="560" fill="#FFF9EF"/>
+  <text x="40" y="48" font-family="Nunito, Arial, sans-serif" font-size="22" font-weight="700" fill="#1F7A44">Step 2  Hanging branches</text>
+  <text x="40" y="78" font-family="Nunito, Arial, sans-serif" font-size="15" fill="#4A5D50">Long curved foliage groups falling downward</text>
+  <ellipse cx="400" cy="505" rx="230" ry="16" fill="#E8F8EE"/>
+  <!-- trunk -->
+  <path d="M392 230 C386 310 380 400 372 485" fill="none" stroke="#8B5E3C" stroke-width="16" stroke-linecap="round"/>
+  <!-- canopy dome -->
+  <ellipse cx="400" cy="195" rx="170" ry="70" fill="#2E9E5B" opacity="0.35"/>
+  <ellipse cx="400" cy="185" rx="150" ry="55" fill="#1F7A44" opacity="0.45"/>
+  <!-- hanging strands left -->
+  <g fill="none" stroke="#2E9E5B" stroke-linecap="round">
+    <path d="M250 210 C245 280 235 360 230 470" stroke-width="5"/>
+    <path d="M275 195 C268 275 258 355 250 475" stroke-width="6"/>
+    <path d="M300 185 C295 270 285 360 278 480" stroke-width="5"/>
+    <path d="M325 175 C322 265 315 360 310 485" stroke-width="6"/>
+    <path d="M350 170 C348 260 342 365 338 488" stroke-width="5"/>
+  </g>
+  <!-- hanging strands center/right -->
+  <g fill="none" stroke="#3CB371" stroke-linecap="round">
+    <path d="M375 165 C374 255 370 365 368 490" stroke-width="5"/>
+    <path d="M400 160 C400 250 400 365 400 492" stroke-width="6"/>
+    <path d="M425 165 C426 255 430 365 432 490" stroke-width="5"/>
+    <path d="M450 170 C452 260 458 365 462 488" stroke-width="6"/>
+    <path d="M475 175 C478 265 485 360 490 485" stroke-width="5"/>
+    <path d="M500 185 C505 270 515 360 522 480" stroke-width="6"/>
+    <path d="M525 195 C532 275 542 355 550 475" stroke-width="5"/>
+    <path d="M550 210 C555 280 565 360 570 470" stroke-width="5"/>
+  </g>
+  <!-- lighter overlapping strands -->
+  <g fill="none" stroke="#1F7A44" stroke-linecap="round" opacity="0.55">
+    <path d="M290 200 C285 290 275 380 268 460" stroke-width="3"/>
+    <path d="M410 168 C412 270 415 380 418 470" stroke-width="3"/>
+    <path d="M490 190 C495 285 505 375 512 460" stroke-width="3"/>
+  </g>
+  <text x="580" y="320" font-family="Nunito, Arial, sans-serif" font-size="14" fill="#1F7A44">gravity pulls</text>
+  <text x="580" y="342" font-family="Nunito, Arial, sans-serif" font-size="14" fill="#1F7A44">branches down</text>
+</svg>

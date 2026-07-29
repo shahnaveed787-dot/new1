@@ -7,11 +7,13 @@ import type {
   TutorialPage,
   TutorialParagraphLink,
   TutorialSection,
+  TutorialSubsection,
 } from "@/content/tutorials";
 import { tutorials } from "@/content/tutorials";
 import {
   absoluteUrl,
   buildBreadcrumbSchema,
+  buildFaqSchema,
   buildWebPageSchema,
   jsonLdScript,
 } from "@/lib/seo";
@@ -200,21 +202,18 @@ function renderSectionList(
   );
 }
 
-function renderSectionBody(
-  section: TutorialSection,
+function renderParagraphBlock(
+  paragraphs: string[],
+  lists: TutorialList[] | undefined,
+  links: TutorialParagraphLink[] | undefined,
   boldPhrases: readonly string[] | undefined,
 ): ReactNode {
-  return section.paragraphs.map((paragraph, paragraphIndex) => (
-    <div key={paragraph.slice(0, 48)}>
+  return paragraphs.map((paragraph, paragraphIndex) => (
+    <div key={`${paragraph.slice(0, 40)}-${paragraphIndex}`}>
       <p className="mt-3 text-lg leading-relaxed text-ink-muted">
-        {enrichParagraph(
-          paragraph,
-          paragraphIndex,
-          section.links,
-          boldPhrases,
-        )}
+        {enrichParagraph(paragraph, paragraphIndex, links, boldPhrases)}
       </p>
-      {section.lists
+      {lists
         ?.filter((list) => list.afterParagraph === paragraphIndex)
         .map((list) => (
           <div key={`${list.type}-${list.afterParagraph}-${list.items[0]}`}>
@@ -225,6 +224,85 @@ function renderSectionBody(
   ));
 }
 
+function renderSectionImage(
+  image: string | undefined,
+  imageAlt: string | undefined,
+  fallbackAlt: string,
+): ReactNode {
+  if (!image) return null;
+  const alt = imageAlt ?? fallbackAlt;
+  const isPortraitGuide = /willow-step|simple-christmas|palm-tree-drawing-easy/i.test(
+    image,
+  );
+  return (
+    <div
+      className={`hero-media relative mt-6 w-full overflow-hidden bg-cream ${
+        isPortraitGuide ? "aspect-[800/560]" : "aspect-[819/1024]"
+      }`}
+    >
+      <Image
+        src={image}
+        alt={alt}
+        title={alt}
+        fill
+        className="object-contain"
+        sizes="(max-width: 640px) 100vw, (max-width: 768px) 92vw, 768px"
+        unoptimized={/\.svg$/i.test(image)}
+      />
+    </div>
+  );
+}
+
+function renderSubsection(
+  subsection: TutorialSubsection,
+  boldPhrases: readonly string[] | undefined,
+): ReactNode {
+  return (
+    <div key={subsection.heading} className="mt-8">
+      <h3 className="font-display text-xl text-ink md:text-2xl">
+        {enrichTutorialText(subsection.heading, boldPhrases)}
+      </h3>
+      {renderParagraphBlock(
+        subsection.paragraphs,
+        subsection.lists,
+        undefined,
+        boldPhrases,
+      )}
+      {renderSectionImage(
+        subsection.image,
+        subsection.imageAlt,
+        subsection.heading,
+      )}
+    </div>
+  );
+}
+
+function renderSectionBody(
+  section: TutorialSection,
+  boldPhrases: readonly string[] | undefined,
+): ReactNode {
+  return (
+    <>
+      {renderParagraphBlock(
+        section.paragraphs,
+        section.lists,
+        section.links,
+        boldPhrases,
+      )}
+      {section.subsections?.map((subsection) =>
+        renderSubsection(subsection, boldPhrases),
+      )}
+    </>
+  );
+}
+
+function splitIntro(intro: string): string[] {
+  return intro
+    .split(/\n\n+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
 export function TutorialContentPage({ page }: Props) {
   const path = permalink(page.slug);
   const related = tutorials
@@ -233,6 +311,18 @@ export function TutorialContentPage({ page }: Props) {
         tutorial.slug !== page.slug && tutorial.status === "ready",
     )
     .slice(0, 4);
+
+  const howtoSection = page.sections.find((section) =>
+    /step-by-step|how to/i.test(section.heading),
+  );
+  const howtoSteps =
+    howtoSection?.subsections
+      ?.filter((sub) => /^step\s*\d+/i.test(sub.heading))
+      .map((sub) => sub.paragraphs.join(" ")) ??
+    howtoSection?.paragraphs ??
+    page.sections[0]?.paragraphs ?? [
+      "Follow the tutorial steps on the page.",
+    ];
 
   const schemas = [
     buildWebPageSchema({
@@ -251,20 +341,14 @@ export function TutorialContentPage({ page }: Props) {
       name: page.title,
       description: page.metaDescription,
       image: absoluteUrl(page.image),
-      totalTime: "PT20M",
-      step: (
-        page.sections.find((section) =>
-          /step|drawing a /i.test(section.heading),
-        )?.paragraphs ??
-        page.sections[0]?.paragraphs ?? [
-          "Follow the tutorial steps on the page.",
-        ]
-      ).map((text, index) => ({
+      totalTime: "PT25M",
+      step: howtoSteps.map((text, index) => ({
         "@type": "HowToStep",
         position: index + 1,
         text,
       })),
     },
+    ...(page.faqs?.length ? [buildFaqSchema(page.faqs)] : []),
   ];
 
   return (
@@ -316,8 +400,9 @@ export function TutorialContentPage({ page }: Props) {
           ) : (
             <div
               className={`hero-media relative mt-8 w-full overflow-hidden bg-cream ${
-                page.slug === "palm-tree-drawing"
-                  ? "aspect-[819/1024]"
+                page.slug === "palm-tree-drawing" ||
+                page.slug === "willow-tree-drawing"
+                  ? "aspect-[820/1024]"
                   : "aspect-[16/10]"
               }`}
             >
@@ -326,24 +411,35 @@ export function TutorialContentPage({ page }: Props) {
                 alt={page.imageAlt}
                 title={page.imageAlt}
                 fill
-                priority={page.slug === "palm-tree-drawing"}
+                priority={
+                  page.slug === "palm-tree-drawing" ||
+                  page.slug === "willow-tree-drawing"
+                }
                 className={`object-contain ${
-                  page.slug === "palm-tree-drawing" ? "" : "p-4"
+                  page.slug === "palm-tree-drawing" ||
+                  page.slug === "willow-tree-drawing"
+                    ? ""
+                    : "p-4"
                 }`}
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 92vw, 768px"
                 unoptimized={/\.svg$/i.test(page.image)}
               />
             </div>
           )}
-          {page.intro ? (
-            <p className="mt-5 text-lg text-ink-muted md:text-xl">
-              {enrichTutorialText(
-                page.intro,
-                page.boldPhrases,
-                page.introLink,
-              )}
-            </p>
-          ) : null}
+          {page.intro
+            ? splitIntro(page.intro).map((paragraph, index) => (
+                <p
+                  key={`intro-${index}`}
+                  className="mt-5 text-lg text-ink-muted md:text-xl"
+                >
+                  {enrichTutorialText(
+                    paragraph,
+                    page.boldPhrases,
+                    index === 0 ? page.introLink : undefined,
+                  )}
+                </p>
+              ))
+            : null}
 
           <div className="mt-10 space-y-10">
             {page.sections.map((section) => (
@@ -358,21 +454,49 @@ export function TutorialContentPage({ page }: Props) {
                   {enrichTutorialText(section.heading, page.boldPhrases)}
                 </h2>
                 {renderSectionBody(section, page.boldPhrases)}
-                {section.image ? (
-                  <div className="hero-media relative mt-6 aspect-[819/1024] w-full overflow-hidden bg-cream">
-                    <Image
-                      src={section.image}
-                      alt={section.imageAlt ?? section.heading}
-                      title={section.imageAlt ?? section.heading}
-                      fill
-                      className="object-contain"
-                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 92vw, 768px"
-                    />
-                  </div>
-                ) : null}
+                {renderSectionImage(
+                  section.image,
+                  section.imageAlt,
+                  section.heading,
+                )}
               </section>
             ))}
           </div>
+
+          {page.faqs?.length ? (
+            <section
+              className="mt-14"
+              aria-labelledby="tutorial-faqs-title"
+            >
+              <h2
+                id="tutorial-faqs-title"
+                className="font-display text-2xl text-ink md:text-3xl"
+              >
+                FAQs
+              </h2>
+              <div className="mt-5 space-y-3">
+                {page.faqs.map((faq) => (
+                  <details
+                    key={faq.question}
+                    className="card-surface group p-5 open:shadow-lift"
+                  >
+                    <summary className="touch-target cursor-pointer list-none font-display text-xl text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                      <span className="flex items-start justify-between gap-4">
+                        {faq.question}
+                        <span
+                          className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-light text-green-dark transition-transform group-open:rotate-45"
+                          aria-hidden="true"
+                        >
+                          +
+                        </span>
+                      </span>
+                    </summary>
+                    <p className="mt-3 text-ink-muted">{faq.answer}</p>
+                  </details>
+                ))}
+              </div>
+            </section>
+          ) : null}
 
           <nav
             className="mt-14 rounded-card bg-white/80 p-6 shadow-soft"

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="1024" viewBox="0 0 820 1024" role="img" aria-label="willow tree drawing">
+  <defs>
+    <linearGradient id="wsky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#C8E8FF"/>
+      <stop offset="55%" stop-color="#FFF9EF"/>
+      <stop offset="100%" stop-color="#E8F5FE"/>
+    </linearGradient>
+    <linearGradient id="wwater" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7EC8F0"/>
+      <stop offset="100%" stop-color="#3FA9F5"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="1024" fill="url(#wsky)"/>
+  <ellipse cx="410" cy="880" rx="320" ry="40" fill="#D9F0D8"/>
+  <ellipse cx="410" cy="920" rx="360" ry="55" fill="url(#wwater)" opacity="0.55"/>
+  <!-- trunk -->
+  <path d="M390 420 C380 560 370 720 355 860" fill="#6B4423"/>
+  <path d="M390 420 C405 560 415 720 430 860" fill="#8B5E3C"/>
+  <path d="M400 420 C408 560 412 720 418 860" fill="#A67C52" opacity="0.55"/>
+  <!-- canopy -->
+  <ellipse cx="410" cy="340" rx="230" ry="110" fill="#1F7A44"/>
+  <ellipse cx="340" cy="370" rx="130" ry="80" fill="#2E9E5B"/>
+  <ellipse cx="480" cy="360" rx="140" ry="85" fill="#2E9E5B"/>
+  <ellipse cx="410" cy="300" rx="160" ry="70" fill="#3CB371"/>
+  <!-- hanging strands -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M220 380 C210 520 195 680 185 820" stroke="#145C32" stroke-width="10"/>
+    <path d="M255 355 C245 510 230 690 220 840" stroke="#1F7A44" stroke-width="12"/>
+    <path d="M295 330 C288 500 275 690 268 850" stroke="#2E9E5B" stroke-width="11"/>
+    <path d="M335 315 C330 490 322 700 318 860" stroke="#145C32" stroke-width="12"/>
+    <path d="M375 305 C372 485 368 700 366 865" stroke="#1F7A44" stroke-width="11"/>
+    <path d="M410 298 C410 480 410 700 410 870" stroke="#2E9E5B" stroke-width="12"/>
+    <path d="M445 305 C448 485 452 700 454 865" stroke="#145C32" stroke-width="11"/>
+    <path d="M485 315 C490 490 498 700 502 860" stroke="#1F7A44" stroke-width="12"/>
+    <path d="M525 330 C532 500 545 700 552 850" stroke="#2E9E5B" stroke-width="11"/>
+    <path d="M565 355 C575 510 590 690 600 840" stroke="#145C32" stroke-width="12"/>
+    <path d="M600 380 C610 520 625 680 635 820" stroke="#1F7A44" stroke-width="10"/>
+  </g>
+  <g fill="#3CB371" opacity="0.8">
+    <ellipse cx="230" cy="520" rx="10" ry="22"/>
+    <ellipse cx="270" cy="600" rx="9" ry="20"/>
+    <ellipse cx="550" cy="580" rx="10" ry="21"/>
+    <ellipse cx="590" cy="500" rx="9" ry="19"/>
+  </g>
+</svg>
