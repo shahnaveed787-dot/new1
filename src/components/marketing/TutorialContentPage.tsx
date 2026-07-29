@@ -400,10 +400,11 @@ export function TutorialContentPage({ page }: Props) {
           ) : (
             <div
               className={`hero-media relative mt-8 w-full overflow-hidden bg-cream ${
-                page.slug === "palm-tree-drawing" ||
-                page.slug === "willow-tree-drawing"
-                  ? "aspect-[820/1024]"
-                  : "aspect-[16/10]"
+                page.slug === "palm-tree-drawing"
+                  ? "aspect-[819/1024]"
+                  : page.slug === "willow-tree-drawing"
+                    ? "aspect-[1600/1420]"
+                    : "aspect-[16/10]"
               }`}
             >
               <Image

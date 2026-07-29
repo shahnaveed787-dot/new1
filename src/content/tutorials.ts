@@ -399,7 +399,7 @@ export const tutorials: TutorialPage[] = [
       "A willow tree is one of the most graceful and recognisable trees in the world. With its flowing branches, delicate leaves, and elegant silhouette, it has inspired artists, gardeners, and nature lovers for centuries. Whether you admire the beauty of a weeping willow beside a peaceful lake or want to improve your artistic skills, learning about this tree can help you appreciate both nature and art.\n\nIf you're interested in willow tree drawing, this guide will introduce the characteristics of the tree before walking you through an easy drawing tutorial. By understanding the tree's structure, you'll create a more realistic and balanced illustration while developing your confidence as a beginner artist.",
     difficulty: "Easy",
     time: "25 min",
-    image: "/images/tutorials/willow-tree-drawing.svg",
+    image: "/images/tutorials/willow-tree-drawing.webp",
     imageAlt: "willow tree",
     updatedLabel: "Updated July 29, 2026",
     boldPhrases: WILLOW_TREE_BOLD_PHRASES,
