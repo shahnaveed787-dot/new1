@@ -106,6 +106,13 @@ export const PALM_TREE_BOLD_PHRASES = [
   "pom tree drawing",
 ] as const;
 
+/** Focus keyword and related phrases for the willow tree lesson */
+export const WILLOW_TREE_BOLD_PHRASES = [
+  "willow tree drawing",
+  "weeping willow tree",
+  "willow tree",
+] as const;
+
 export const tutorials: TutorialPage[] = [
   {
     slug: "christmas-tree-drawing",
@@ -393,8 +400,9 @@ export const tutorials: TutorialPage[] = [
     difficulty: "Easy",
     time: "25 min",
     image: "/images/tutorials/willow-tree-drawing.svg",
-    imageAlt: "willow tree drawing",
+    imageAlt: "willow tree",
     updatedLabel: "Updated July 29, 2026",
+    boldPhrases: WILLOW_TREE_BOLD_PHRASES,
     sections: [
       {
         heading: "What Is a Willow Tree?",

@@ -482,7 +482,7 @@ export function TutorialContentPage({ page }: Props) {
                   >
                     <summary className="touch-target cursor-pointer list-none font-display text-xl text-ink marker:content-none [&::-webkit-details-marker]:hidden">
                       <span className="flex items-start justify-between gap-4">
-                        {faq.question}
+                        {enrichTutorialText(faq.question, page.boldPhrases)}
                         <span
                           className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-green-light text-green-dark transition-transform group-open:rotate-45"
                           aria-hidden="true"
@@ -491,7 +491,9 @@ export function TutorialContentPage({ page }: Props) {
                         </span>
                       </span>
                     </summary>
-                    <p className="mt-3 text-ink-muted">{faq.answer}</p>
+                    <p className="mt-3 text-ink-muted">
+                      {enrichTutorialText(faq.answer, page.boldPhrases)}
+                    </p>
                   </details>
                 ))}
               </div>
